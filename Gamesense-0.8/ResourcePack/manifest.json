@@ -1,0 +1,18 @@
+{
+  "format_version": 2,
+  "header": {
+    "description": "GameSense",
+    "name": "getting good. getting gamesense",
+    "uuid": "fd2a4f60-daba-4e56-8db9-934e239a4d15",
+    "version": [ 1, 0, 0 ],
+    "min_engine_version": [ 1, 16, 0 ]
+  },
+  "modules": [
+    {
+      "description": "Getting good, getting gamesense",
+      "type": "resources",
+      "uuid": "5a9caefa-5d21-4d5d-8525-6079cfbc2e6d",
+      "version": [ 1, 0, 0 ]
+    }
+  ]
+}

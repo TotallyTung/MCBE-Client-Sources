@@ -1,0 +1,1 @@
+This folder contains headers from various sources that may be used as references when doing any sort of reverse engineering on the game. Many of these headers are sourced from github or are older headers from earlier versions of the game.

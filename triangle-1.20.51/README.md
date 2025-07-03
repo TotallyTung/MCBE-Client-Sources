@@ -1,0 +1,1 @@
+add libminhook to packages after build

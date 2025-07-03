@@ -1,0 +1,162 @@
+#define NOMINMAX
+#include "AutoGrind.h"
+#include "../../../ModuleManager.h"
+#include "../Player/PacketMine.h"
+
+bool autoEat;
+
+AutoGrind::AutoGrind() : Module("AutoGrind", "Grind afk", Category::WORLD) {
+    registerSetting(new BoolSetting("AutoEat", "Eat automatically", &autoEat, false));
+    registerSetting(new SliderSetting<int>("Range", "Scan radius", &range, 3, 1, 12));
+    registerSetting(new BoolSetting("Diamond", "Break Diamond", &diamond, true));
+    registerSetting(new BoolSetting("Iron", "Break Iron", &iron, false));
+    registerSetting(new BoolSetting("Gold", "Break Gold", &gold, false));
+    registerSetting(new BoolSetting("Coal", "Break Coal", &coal, false));
+    registerSetting(new BoolSetting("Redstone", "Break Redstone", &redstone, false));
+    registerSetting(new BoolSetting("Emerald", "Break Emerald", &emerald, false));
+    registerSetting(new BoolSetting("AncientDebris", "Break Ancient Debris", &ancient, false));
+}
+
+void AutoGrind::onEnable() {
+    AutoMine* autoMine = ModuleManager::getModule<AutoMine>();
+
+    Game.DisplayClientMessage("%s[AutoGrind] Enabled", MCTF::WHITE);
+    Game.DisplayClientMessage("%s[WARNING] Make sure your AutoMine and PacketMine settings are correct", MCTF::RED);
+
+    // Enable AutoMine if it's not enabled already
+    if (autoMine && !autoMine->isEnabled()) {
+        autoMine->setEnabled(true);
+    }
+}
+
+int AutoGrind::getFoodSlot() {
+    auto* plrInv = Game.getLocalPlayer()->getplayerInventory();
+    auto* inv = plrInv->container;
+
+    for (int i = 0; i < 9; i++) {
+        auto* itemStack = inv->getItem(i);
+        if (itemStack->isValid() && itemStack->item.get() != nullptr && itemStack->item->isFood()) {
+            return i;  // Return the slot index of food
+        }
+    }
+    return -1;  // Return -1 if no food found
+}
+
+void AutoGrind::onNormalTick(LocalPlayer* localPlayer) {
+    if (!localPlayer) return;
+
+    GameMode* gm = localPlayer->gameMode;
+    if (!gm) return;
+
+    BlockSource* region = Game.getClientInstance()->getRegion();
+    if (!region) return;
+
+    // Handle AutoEat functionality
+    if (autoEat) {
+        if (localPlayer->getAttribute(AttributeId::PlayerHunger)->currentValue < localPlayer->getAttribute(AttributeId::PlayerHunger)->maximumValue) {
+            int foodSlot = getFoodSlot();
+            if (foodSlot != -1 && localPlayer->getItemUseDuration() == 0) {
+                auto* plrInv = localPlayer->getplayerInventory();
+                auto* itemStack = plrInv->container->getItem(foodSlot);
+                gm->baseUseItem(itemStack);  // Use food item without switching slots
+            }
+        }
+    }
+
+    // Handle Lava and WaterTP
+    BlockPos playerBlockPos((int)localPlayer->getPos().x, (int)localPlayer->getPos().y, (int)localPlayer->getPos().z);  // Block below player
+    Block* belowBlock = region->getBlock(playerBlockPos);
+    if (belowBlock && belowBlock->blockLegacy) {
+        int blockId = belowBlock->blockLegacy->blockId;
+        if (blockId == 10 || blockId == 11) {
+            // If player is standing in lava, enable WaterTP
+            WaterTP* waterTP = ModuleManager::getModule<WaterTP>();
+            if (waterTP && !waterTP->isEnabled()) {
+                waterTP->setEnabled(true);  // Enable WaterTP if it's not already enabled
+            }
+        }
+    }
+
+    // 🔹 Check for the closest ore
+    std::vector<int> ores;
+    if (diamond) ores.push_back(56);
+    if (iron) ores.push_back(15);
+    if (gold) ores.push_back(14);
+    if (coal) ores.push_back(16);
+    if (redstone) ores.push_back(74);
+    if (emerald) ores.push_back(129);
+    if (ancient) ores.push_back(526);
+
+    Vec3<float> playerPos = localPlayer->getPos();
+    BlockPos base((int)playerPos.x, (int)playerPos.y, (int)playerPos.z);
+
+    float closestDist = FLT_MAX;
+    BlockPos closestOre(0, 0, 0);
+
+    // Search for the closest ore in the specified range
+    for (int x = -range; x <= range; x++) {
+        for (int y = -range; y <= range; y++) {
+            for (int z = -range; z <= range; z++) {
+                BlockPos pos = base.add2(x, y, z);
+                Block* blk = region->getBlock(pos);
+                if (!blk || !blk->blockLegacy) continue;
+
+                int id = blk->blockLegacy->blockId;
+                if (std::find(ores.begin(), ores.end(), id) == ores.end()) continue;
+
+                float dist = playerPos.dist(pos.CastTo<float>());
+                if (dist < closestDist) {
+                    closestDist = dist;
+                    closestOre = pos;
+                }
+            }
+        }
+    }
+
+    if (closestDist == FLT_MAX) {
+        AutoMine* autoMine = ModuleManager::getModule<AutoMine>();
+        if (autoMine && !autoMine->isEnabled()) {
+            autoMine->setEnabled(true);  // Only enable AutoMine if no ore found
+        }
+        return;  // No ores found, don't attempt to mine
+    }
+    PacketMine* packetMine = ModuleManager::getModule<PacketMine>();
+    if (packetMine && !packetMine->isEnabled()) {
+        packetMine->setEnabled(true);
+    }
+
+    // 🔹 Mine the closest ore
+    Vec2<float> rot = playerPos.CalcAngle(closestOre.toFloat().add2(0.5f, 0.5f, 0.5f));
+    localPlayer->rotation->presentRot = rot;
+
+    // Check the mining progress before starting the mining
+    if (gm->destroyProgress <= 0.f) {
+        bool b = false;
+        gm->startDestroyBlock(closestOre, 0, b);  // Start the break process
+    }
+    else if (gm->destroyProgress >= 1.f) {
+        // When destroy progress is 100%, reset it and send the break packet
+        gm->destroyProgress = 0.f;  // Reset the progress to 0 after block is broken
+
+        // Send a packet to inform the server the block was destroyed
+        PacketMine* packetMine = ModuleManager::getModule<PacketMine>();
+        if (packetMine && packetMine->isEnabled()) {
+            packetMine->sendBreakPacket(closestOre, 0, localPlayer);  // Sends the block-breaking packet
+        }
+
+
+        if (packetMine && packetMine->isEnabled()) {
+            packetMine->setEnabled(false);
+        }
+    }
+}
+
+void AutoGrind::onDisable() {
+    Game.DisplayClientMessage("%s[AutoGrind] Disabled", MCTF::WHITE);
+
+    // Handle PacketMine module: disable it only if it's enabled
+    PacketMine* packetMine = ModuleManager::getModule<PacketMine>();
+    if (packetMine && packetMine->isEnabled()) {
+        packetMine->setEnabled(false);  // Disable PacketMine if enabled
+    }
+}

@@ -1,0 +1,162 @@
+#include "AfkMine.h"
+#include "../../../ModuleManager.h"
+#include "../Player/PacketMine.h"
+
+AfkMine::AfkMine() : Module("AfkMine", "Unfinished", Category::WORLD) {
+    registerSetting(new SliderSetting<int>("Range", "Scan range", &range, 30, 1, 300));
+    registerSetting(new BoolSetting("Diamond", "Mine Diamond", &diamond, true));
+    registerSetting(new BoolSetting("Iron", "Mine Iron", &iron, false));
+    registerSetting(new BoolSetting("Gold", "Mine Gold", &gold, false));
+    registerSetting(new BoolSetting("Coal", "Mine Coal", &coal, false));
+    registerSetting(new BoolSetting("Redstone", "Mine Redstone", &redstone, false));
+    registerSetting(new BoolSetting("Emerald", "Mine Emerald", &emerald, false));
+    registerSetting(new BoolSetting("AncientDebris", "Mine Ancient Debris", &ancient, false));
+    registerSetting(new SliderSetting<int>("Vein Size", "Min cluster size", &clusterSize, 1, 1, 9));
+}
+
+std::vector<BlockPos> visitedOres;
+std::vector<BlockPos> clusterBlocks;
+BlockPos currentOre(0, 0, 0);
+Vec3<float> goal;
+bool mining = false;
+int mineDelay = 0;
+int mineDelayMax = 10;
+int scanTimer = 0; // New timer for scan interval (5s = 100 ticks)
+
+void scanForNextOre(LocalPlayer* localPlayer, BlockSource* region, std::vector<int>& ores, int range, int clusterSize) {
+    Vec3<float> playerPos = localPlayer->getPos();
+    float closestDist = FLT_MAX;
+    BlockPos bestPos(0, 0, 0);
+    int bestId = -1;
+
+    for (int x = -range; x <= range; x++) {
+        for (int y = -range; y <= range; y++) {
+            for (int z = -range; z <= range; z++) {
+                BlockPos pos((int)playerPos.x + x, (int)playerPos.y + y, (int)playerPos.z + z);
+                if (std::find(visitedOres.begin(), visitedOres.end(), pos) != visitedOres.end()) continue;
+
+                Block* blk = region->getBlock(pos);
+                if (!blk || !blk->blockLegacy) continue;
+
+                int id = blk->blockLegacy->blockId;
+                if (std::find(ores.begin(), ores.end(), id) == ores.end()) continue;
+
+                int clusterCount = 0;
+                for (int dx = -1; dx <= 1; dx++) {
+                    for (int dy = -1; dy <= 1; dy++) {
+                        for (int dz = -1; dz <= 1; dz++) {
+                            BlockPos n = pos.add2(dx, dy, dz);
+                            Block* nb = region->getBlock(n);
+                            if (nb && nb->blockLegacy && nb->blockLegacy->blockId == id) clusterCount++;
+                        }
+                    }
+                }
+
+                if (clusterCount < clusterSize) continue;
+
+                float dist = playerPos.dist(pos.CastTo<float>());
+                if (dist < closestDist) {
+                    closestDist = dist;
+                    bestPos = pos;
+                    bestId = id;
+                }
+            }
+        }
+    }
+
+    if (closestDist == FLT_MAX) return;
+
+    currentOre = bestPos;
+    goal = bestPos.toFloat().add(Vec3<float>(0.5f, 1.0f, 0.5f));
+    clusterBlocks.clear();
+
+    for (int dx = -1; dx <= 1; dx++) {
+        for (int dy = -1; dy <= 1; dy++) {
+            for (int dz = -1; dz <= 1; dz++) {
+                BlockPos neighbor = bestPos.add2(dx, dy, dz);
+                Block* check = region->getBlock(neighbor);
+                if (check && check->blockLegacy && check->blockLegacy->blockId == bestId) {
+                    clusterBlocks.push_back(neighbor);
+                }
+            }
+        }
+    }
+
+    Game.DisplayClientMessage("%s[AFKMINE] Targeting ore vein...", MCTF::YELLOW);
+    mining = false;
+}
+
+void AfkMine::onEnable() {
+    visitedOres.clear();
+    clusterBlocks.clear();
+    mining = false;
+    mineDelay = 0;
+    scanTimer = 0; // Reset the scan timer on enable
+}
+
+void AfkMine::onNormalTick(LocalPlayer* localPlayer) {
+    if (!localPlayer) return;
+
+    GameMode* gm = localPlayer->gameMode;
+    if (!gm) return;
+
+    PacketMine* packetMine = ModuleManager::getModule<PacketMine>();
+    if (!packetMine || !packetMine->isEnabled()) packetMine->setEnabled(true);
+
+    BlockSource* region = Game.getClientInstance()->getRegion();
+    if (!region) return;
+
+    std::vector<int> ores;
+    if (diamond) ores.push_back(56);
+    if (iron) ores.push_back(15);
+    if (gold) ores.push_back(14);
+    if (coal) ores.push_back(16);
+    if (redstone) ores.push_back(74);
+    if (emerald) ores.push_back(129);
+    if (ancient) ores.push_back(526);
+
+    Vec3<float> playerPos = localPlayer->getPos();
+
+    // Scan and teleport every 5 secs
+    if (!mining && clusterBlocks.empty()) {
+        if (scanTimer <= 0) {
+            scanForNextOre(localPlayer, region, ores, range, clusterSize);
+            scanTimer = 100; // Reset scan timer for 5 seconds cooldown
+        }
+        else {
+            scanTimer--; // Decrease the scan timer
+        }
+        return;
+    }
+
+    float dist = playerPos.dist(goal);
+    if (dist > 0.5f) {
+        // Teleport to goal by directly setting the player's position
+        localPlayer->setPos(goal);
+        return;
+    }
+
+    if (!clusterBlocks.empty() && mineDelay <= 0) {
+        BlockPos next = clusterBlocks.back();
+        clusterBlocks.pop_back();
+        currentOre = next;
+        goal = next.toFloat().add(Vec3<float>(0.5f, 1.0f, 0.5f));
+        localPlayer->setPos(goal);  // Teleport to the ore position directly
+
+        Vec2<float> rot = playerPos.CalcAngle(goal);
+        localPlayer->rotation->presentRot = rot;
+
+        bool b = false;
+        gm->startDestroyBlock(next, 0, b);
+        packetMine->mineBlock(next, 0);
+        mining = true;
+        mineDelay = mineDelayMax;
+    }
+
+    if (mineDelay > 0) mineDelay--;
+
+    if (mining && gm->destroyProgress <= 0.f && mineDelay == 0 && clusterBlocks.empty()) {
+        visitedOres.push_back(currentOre);
+        mining = false;
+    }
+}

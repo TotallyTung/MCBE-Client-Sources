@@ -1,0 +1,165 @@
+#include "AfkMine2.h"
+#include "../../../ModuleManager.h"
+#include "../Player/PacketMine.h"
+#include "../World/WaterTP.h"
+
+bool autoEat;  // Global variable for AutoEat setting
+
+AfkMine2::AfkMine2() : Module("AfkMine2", "Grind afk", Category::WORLD) {
+    // Registering the settings for the module
+    registerSetting(new BoolSetting("AutoEat", "AutoEat", &autoEat, false));  // AutoEat setting
+    registerSetting(new SliderSetting<int>("Range", "Scan radius", &range, 3, 1, 12));
+    registerSetting(new BoolSetting("Diamond", "Break Diamond", &diamond, true));
+    registerSetting(new BoolSetting("Iron", "Break Iron", &iron, false));
+    registerSetting(new BoolSetting("Gold", "Break Gold", &gold, false));
+    registerSetting(new BoolSetting("Coal", "Break Coal", &coal, false));
+    registerSetting(new BoolSetting("Redstone", "Break Redstone", &redstone, false));
+    registerSetting(new BoolSetting("Emerald", "Break Emerald", &emerald, false));
+    registerSetting(new BoolSetting("AncientDebris", "Break Ancient Debris", &ancient, false));
+}
+
+void AfkMine2::onEnable() {
+    // Enable AutoMine if it is not already enabled
+    AutoMine* autoMine = ModuleManager::getModule<AutoMine>();
+    if (autoMine && !autoMine->isEnabled()) {
+        autoMine->setEnabled(true);
+    }
+}
+
+int AfkMine2::getFoodSlot() {
+    // Get the player's inventory and check for food items
+    auto* plrInv = Game.getLocalPlayer()->getplayerInventory();
+    auto* inv = plrInv->container;
+
+    for (int i = 0; i < 9; i++) {
+        auto* itemStack = inv->getItem(i);
+        if (itemStack->isValid() && itemStack->item.get() != nullptr && itemStack->item->isFood()) {
+            return i;  // Return the slot index of food
+        }
+    }
+    return plrInv->selectedSlot;  // Default to selected slot if no food is found
+}
+
+void AfkMine2::onNormalTick(LocalPlayer* localPlayer) {
+    if (!localPlayer) return;
+
+    GameMode* gm = localPlayer->gameMode;
+    if (!gm) return;
+
+    // Ensure PacketMine is enabled
+    PacketMine* packetMine = ModuleManager::getModule<PacketMine>();
+    if (packetMine && !packetMine->isEnabled()) {
+        packetMine->setEnabled(true);
+    }
+
+    BlockSource* region = Game.getClientInstance()->getRegion();
+    if (!region) return;
+
+    // AutoEat: Check if the player needs to eat
+    if (autoEat) {
+        // Check if the player's head is blocked (i.e., block directly above the player)
+        BlockPos headBlockPos((int)Game.getLocalPlayer()->getPos().x, (int)Game.getLocalPlayer()->getPos().y + 1, (int)Game.getLocalPlayer()->getPos().z);
+        Block* headBlock = region->getBlock(headBlockPos);
+
+        // Only auto-eat if there is no block above the player OR if the block above is already mined
+        if (!headBlock || !headBlock->blockLegacy) {
+            if (localPlayer->getAttribute(AttributeId::PlayerHunger)->currentValue < localPlayer->getAttribute(AttributeId::PlayerHunger)->maximumValue) {
+                int foodSlot = getFoodSlot();
+                if (foodSlot != -1 && localPlayer->getItemUseDuration() == 0) {
+                    auto* plrInv = localPlayer->getplayerInventory();
+                    int oldSlot = plrInv->selectedSlot;
+
+                    plrInv->selectedSlot = foodSlot;  // Switch to the food slot
+                    auto* itemStack = plrInv->container->getItem(foodSlot);
+                    gm->baseUseItem(itemStack);  // Use the food item
+
+                    plrInv->selectedSlot = oldSlot;  // Restore the old slot
+                }
+            }
+        }
+    }
+
+    // Check if the player is standing in lava, and if so, enable WaterTP
+    BlockPos playerBlockPos((int)Game.getLocalPlayer()->getPos().x, (int)Game.getLocalPlayer()->getPos().y - 1, (int)Game.getLocalPlayer()->getPos().z);
+    Block* belowBlock = region->getBlock(playerBlockPos);
+    if (belowBlock && belowBlock->blockLegacy) {
+        int blockId = belowBlock->blockLegacy->blockId;
+        if (blockId == 10 || blockId == 11) {
+            WaterTP* waterTP = ModuleManager::getModule<WaterTP>();
+            if (waterTP && !waterTP->isEnabled()) {
+                waterTP->setEnabled(true);  // Enable WaterTP if it's not already enabled
+            }
+        }
+    }
+
+    // Mine the block above the player if it's there and not mined yet
+    BlockPos headBlockPos((int)Game.getLocalPlayer()->getPos().x, (int)Game.getLocalPlayer()->getPos().y + 1, (int)Game.getLocalPlayer()->getPos().z);
+    Block* headBlock = region->getBlock(headBlockPos);
+
+    if (headBlock && headBlock->blockLegacy) {
+        // Mine the block above the player even if it's not an ore
+        Vec3<float> playerPos = localPlayer->getPos();
+        BlockPos blockToMine = headBlockPos;
+
+        Vec2<float> rot = playerPos.CalcAngle(blockToMine.toFloat().add2(0.5f, 0.5f, 0.5f));
+        localPlayer->rotation->presentRot = rot;
+
+        if (gm->destroyProgress <= 0.f || packetMine->getBreakPos() != blockToMine) {
+            bool b = false;
+            gm->startDestroyBlock(blockToMine, 0, b);
+            packetMine->mineBlock(blockToMine, 0);
+        }
+    }
+
+    // Search for closest ore (or any block)
+    Vec3<float> playerPos = localPlayer->getPos();
+    BlockPos base((int)playerPos.x, (int)playerPos.y, (int)playerPos.z);
+
+    // Use a fixed range to check for nearby blocks in front of the player
+    float closestDist = FLT_MAX;
+    BlockPos closestBlock(0, 0, 0);
+
+    for (int x = -range; x <= range; x++) {
+        for (int y = -range; y <= range; y++) {
+            for (int z = -range; z <= range; z++) {
+                BlockPos pos = base.add2(x, y, z);
+                Block* blk = region->getBlock(pos);
+                if (!blk || !blk->blockLegacy) continue;
+
+                // We will break any block, not just ores
+                float dist = playerPos.dist(pos.CastTo<float>());
+                if (dist < closestDist) {
+                    closestDist = dist;
+                    closestBlock = pos;
+                }
+            }
+        }
+    }
+
+    if (closestDist == FLT_MAX) {
+        // If no block is found, enable AutoMine if it isn't already enabled
+        AutoMine* autoMine = ModuleManager::getModule<AutoMine>();
+        if (autoMine && !autoMine->isEnabled()) {
+            autoMine->setEnabled(true);
+        }
+        return;  // Exit if no block is found to avoid mining air
+    }
+
+    // Face and mine the closest block
+    Vec2<float> rot = playerPos.CalcAngle(closestBlock.toFloat().add2(0.5f, 0.5f, 0.5f));
+    localPlayer->rotation->presentRot = rot;
+
+    if (gm->destroyProgress <= 0.f || packetMine->getBreakPos() != closestBlock) {
+        bool b = false;
+        gm->startDestroyBlock(closestBlock, 0, b);
+        packetMine->mineBlock(closestBlock, 0);
+    }
+}
+
+void AfkMine2::onDisable() {
+    // Disable PacketMine when AfkMine2 is turned off
+    PacketMine* packetMine = ModuleManager::getModule<PacketMine>();
+    if (packetMine && packetMine->isEnabled()) {
+        packetMine->setEnabled(false);
+    }
+}

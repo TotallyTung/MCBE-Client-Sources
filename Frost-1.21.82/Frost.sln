@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33815.320
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Frost", "..\Frost\Frost.vcxproj", "{3CB0D4C9-3FEE-4D4C-B812-C1218DA1665B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3CB0D4C9-3FEE-4D4C-B812-C1218DA1665B}.Debug|x64.ActiveCfg = Debug|x64
+		{3CB0D4C9-3FEE-4D4C-B812-C1218DA1665B}.Debug|x64.Build.0 = Debug|x64
+		{3CB0D4C9-3FEE-4D4C-B812-C1218DA1665B}.Debug|x86.ActiveCfg = Debug|Win32
+		{3CB0D4C9-3FEE-4D4C-B812-C1218DA1665B}.Debug|x86.Build.0 = Debug|Win32
+		{3CB0D4C9-3FEE-4D4C-B812-C1218DA1665B}.Release|x64.ActiveCfg = Release|x64
+		{3CB0D4C9-3FEE-4D4C-B812-C1218DA1665B}.Release|x64.Build.0 = Release|x64
+		{3CB0D4C9-3FEE-4D4C-B812-C1218DA1665B}.Release|x86.ActiveCfg = Release|Win32
+		{3CB0D4C9-3FEE-4D4C-B812-C1218DA1665B}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {66AFF743-0DB8-4F14-BE80-9C387E4AD66B}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>16.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{746e0101-9127-4bcc-a539-75e5f8295fbf}</ProjectGuid>
+    <RootNamespace>Vope</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>Forge</ProjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <TargetName>Vope-DevBuild</TargetName>
+    <OutDir>$(SolutionDir)DLL</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <TargetName>Forge-DevBuild</TargetName>
+    <OutDir>$(SolutionDir)DLL</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <TargetName>Vope-Release</TargetName>
+    <OutDir>$(SolutionDir)DLL</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <TargetName>Vope-Release</TargetName>
+    <OutDir>$(SolutionDir)DLL</OutDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;_CRT_SECURE_NO_WARNINGS;_DEBUG</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <AdditionalIncludeDirectories>$(ProjectDir)Libs;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <ExceptionHandling>Async</ExceptionHandling>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableUAC>false</EnableUAC>
+      <AdditionalLibraryDirectories>$(ProjectDir)Libs</AdditionalLibraryDirectories>
+    </Link>
+    <PostBuildEvent>
+      <Command>echo " ######  ##     ##  ######   ######  ########  ######   ######  "
+echo "##    ## ##     ## ##    ## ##    ## ##       ##    ## ##    ## "
+echo "##       ##     ## ##       ##       ##       ##       ##       "
+echo " ######  ##     ## ##       ##       ######    ######   ######  "
+echo "      ## ##     ## ##       ##       ##             ##       ## "
+echo "##    ## ##     ## ##    ## ##    ## ##       ##    ## ##    ## "
+echo " ######   #######   ######   ######  ########  ######   ######  "</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;_CRT_SECURE_NO_WARNINGS;</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <AdditionalIncludeDirectories>$(ProjectDir)Libs;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <ExceptionHandling>Async</ExceptionHandling>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableUAC>false</EnableUAC>
+      <AdditionalLibraryDirectories>$(ProjectDir)Libs</AdditionalLibraryDirectories>
+    </Link>
+    <PostBuildEvent>
+      <Command>echo " ######  ##     ##  ######   ######  ########  ######   ######  "
+echo "##    ## ##     ## ##    ## ##    ## ##       ##    ## ##    ## "
+echo "##       ##     ## ##       ##       ##       ##       ##       "
+echo " ######  ##     ## ##       ##       ######    ######   ######  "
+echo "      ## ##     ## ##       ##       ##             ##       ## "
+echo "##    ## ##     ## ##    ## ##    ## ##       ##    ## ##    ## "
+echo " ######   #######   ######   ######  ########  ######   ######  "</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;_CRT_SECURE_NO_WARNINGS;_DEBUG</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <AdditionalIncludeDirectories>$(ProjectDir)Libs;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <ExceptionHandling>Async</ExceptionHandling>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableUAC>false</EnableUAC>
+      <AdditionalLibraryDirectories>$(ProjectDir)Libs</AdditionalLibraryDirectories>
+    </Link>
+    <PostBuildEvent>
+      <Command>echo " ######  ##     ##  ######   ######  ########  ######   ######  "
+echo "##    ## ##     ## ##    ## ##    ## ##       ##    ## ##    ## "
+echo "##       ##     ## ##       ##       ##       ##       ##       "
+echo " ######  ##     ## ##       ##       ######    ######   ######  "
+echo "      ## ##     ## ##       ##       ##             ##       ## "
+echo "##    ## ##     ## ##    ## ##    ## ##       ##    ## ##    ## "
+echo " ######   #######   ######   ######  ########  ######   ######  "</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;_CRT_SECURE_NO_WARNINGS;</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <AdditionalIncludeDirectories>$(ProjectDir)Libs;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <ExceptionHandling>Async</ExceptionHandling>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableUAC>false</EnableUAC>
+      <AdditionalLibraryDirectories>$(ProjectDir)Libs</AdditionalLibraryDirectories>
+    </Link>
+    <PostBuildEvent>
+      <Command>echo " ######  ##     ##  ######   ######  ########  ######   ######  "
+echo "##    ## ##     ## ##    ## ##    ## ##       ##    ## ##    ## "
+echo "##       ##     ## ##       ##       ##       ##       ##       "
+echo " ######  ##     ## ##       ##       ######    ######   ######  "
+echo "      ## ##     ## ##       ##       ##             ##       ## "
+echo "##    ## ##     ## ##    ## ##    ## ##       ##    ## ##    ## "
+echo " ######   #######   ######   ######  ########  ######   ######  "</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="Client\Game.h" />
+    <ClInclude Include="Client\GUI\LoginUI.h" />
+    <ClInclude Include="Client\GUI\SplashScreen.h" />
+    <ClInclude Include="Client\Hooks\SwingHook.h" />
+    <ClInclude Include="Client\Hooks\OpenURLHook.h" />
+    <ClInclude Include="Client\Hooks\PacketHook.h" />
+    <ClInclude Include="Client\Hooks\RakPeerHook.h" />
+    <ClInclude Include="Client\GUI\DirectXHook.h" />
+    <ClInclude Include="Client\GUI\Fonts.h" />
+    <ClInclude Include="Client\Hooks\RenderContextHook.h" />
+    <ClInclude Include="Client\Hooks\SendChatMessage.h" />
+    <ClInclude Include="Client\Hooks\UIControl.h" />
+    <ClInclude Include="Client\Hooks\UISceneHook.h" />
+    <ClInclude Include="Client\Module\Module.h" />
+    <ClInclude Include="Client\Module\ModuleHandler.h" />
+    <ClInclude Include="Client\Module\Modules\ArrayList.h" />
+    <ClInclude Include="Client\Module\Modules\Watermark.h" />
+    <ClInclude Include="Client\Module\Setting.h" />
+    <ClInclude Include="Libs\imgui\imconfig.h" />
+    <ClInclude Include="Libs\imgui\imfx.h" />
+    <ClInclude Include="Libs\imgui\imgui.h" />
+    <ClInclude Include="Libs\imgui\imgui_internal.h" />
+    <ClInclude Include="Libs\imgui\impl\imgui_impl_dx11.h" />
+    <ClInclude Include="Libs\imgui\impl\imgui_impl_dx12.h" />
+    <ClInclude Include="Libs\imgui\impl\imgui_impl_win32.h" />
+    <ClInclude Include="Libs\imgui\imstb_rectpack.h" />
+    <ClInclude Include="Libs\imgui\imstb_textedit.h" />
+    <ClInclude Include="Libs\imgui\imstb_truetype.h" />
+    <ClInclude Include="Libs\json.hpp" />
+    <ClInclude Include="Libs\kiero\kiero.h" />
+    <ClInclude Include="Libs\openssl\__DECC_INCLUDE_EPILOGUE.H" />
+    <ClInclude Include="Libs\openssl\__DECC_INCLUDE_PROLOGUE.H" />
+    <ClInclude Include="Libs\SlimMem.h" />
+    <ClInclude Include="Libs\xorstr.hpp" />
+    <ClInclude Include="SDK\Core\ClientInstance.h" />
+    <ClInclude Include="SDK\Event\Events.h" />
+    <ClInclude Include="SDK\Event\Events\ImGUIRenderEvent.h" />
+    <ClInclude Include="SDK\GameMode.h" />
+    <ClInclude Include="SDK\Math\AABB.h" />
+    <ClInclude Include="SDK\Math\CaretMeasureData.h" />
+    <ClInclude Include="SDK\Math\Keys.h" />
+    <ClInclude Include="SDK\Math\Math.h" />
+    <ClInclude Include="SDK\Math\MCTextFormat.h" />
+    <ClInclude Include="SDK\Math\TextInput.h" />
+    <ClInclude Include="SDK\Math\UIColor.h" />
+    <ClInclude Include="SDK\Math\Vector2.h" />
+    <ClInclude Include="SDK\Math\Vector3.h" />
+    <ClInclude Include="SDK\Math\Vector4.h" />
+    <ClInclude Include="SDK\Packet.h" />
+    <ClInclude Include="SDK\Packets\UpdateBlockPacket.h" />
+    <ClInclude Include="SDK\MinecraftUIRenderContext.h" />
+    <ClInclude Include="SDK\TextHolder.h" />
+    <ClInclude Include="SDK\UIControl.h" />
+    <ClInclude Include="Utils\ColorUtil.h" />
+    <ClInclude Include="Utils\Console.h" />
+    <ClInclude Include="Client\FuncHook.h" />
+    <ClInclude Include="Client\Hooks\KeymapHook.h" />
+    <ClInclude Include="dllmain.h" />
+    <ClInclude Include="Libs\minhook\buffer.h" />
+    <ClInclude Include="Libs\minhook\HDE\hde32.h" />
+    <ClInclude Include="Libs\minhook\HDE\hde64.h" />
+    <ClInclude Include="Libs\minhook\HDE\pstdint.h" />
+    <ClInclude Include="Libs\minhook\HDE\table32.h" />
+    <ClInclude Include="Libs\minhook\HDE\table64.h" />
+    <ClInclude Include="Libs\minhook\minhook.h" />
+    <ClInclude Include="Libs\minhook\trampoline.h" />
+    <ClInclude Include="Utils\DrawUtils.h" />
+    <ClInclude Include="Utils\EasingUtil.h" />
+    <ClInclude Include="Utils\ChatUtil.h" />
+    <ClInclude Include="Utils\ImRenderUtil.h" />
+    <ClInclude Include="Utils\MemoryUtils.h" />
+    <ClInclude Include="Utils\TimeUtil.h" />
+    <ClInclude Include="Utils\Utils.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="dllmain.cpp" />
+    <ClCompile Include="Libs\imgui\imfx.cpp" />
+    <ClCompile Include="Libs\imgui\imgui.cpp" />
+    <ClCompile Include="Libs\imgui\imgui_demo.cpp" />
+    <ClCompile Include="Libs\imgui\imgui_draw.cpp" />
+    <ClCompile Include="Libs\imgui\imgui_tables.cpp" />
+    <ClCompile Include="Libs\imgui\imgui_widgets.cpp" />
+    <ClCompile Include="Libs\imgui\impl\imgui_impl_dx11.cpp" />
+    <ClCompile Include="Libs\imgui\impl\imgui_impl_dx12.cpp" />
+    <ClCompile Include="Libs\imgui\impl\imgui_impl_win32.cpp" />
+    <ClCompile Include="Libs\kiero\kiero.cpp" />
+    <ClCompile Include="Libs\minhook\buffer.c" />
+    <ClCompile Include="Libs\minhook\HDE\hde32.c" />
+    <ClCompile Include="Libs\minhook\HDE\hde64.c" />
+    <ClCompile Include="Libs\minhook\hook.c" />
+    <ClCompile Include="Libs\minhook\trampoline.c" />
+    <ClCompile Include="Libs\SlimMem.cpp" />
+    <ClCompile Include="Libs\stb_image.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

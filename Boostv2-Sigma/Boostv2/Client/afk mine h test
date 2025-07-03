@@ -1,0 +1,29 @@
+#pragma once
+#include "../../ModuleBase/Module.h"
+#include "../Player/AutoMine.h"  // Include AutoMine for dependency resolution
+#include "../Player/PacketMine.h" // Include PacketMine for dependency resolution
+
+class AfkMine2 : public Module {
+private:
+    int range = 6;  // Range for scanning ores
+    int tickDelay = 2;  // Delay between ticks
+    int delayCounter = 0;  // Counter for tick delay
+    BlockPos currentTarget = BlockPos(0, 0, 0);  // Position of the current target block
+    bool breaking = false; 
+    bool spoofSwitch = false;  
+
+    bool diamond = true;  
+    bool iron = false;  
+    bool gold = false;  
+    bool coal = false; 
+    bool redstone = false;  
+    bool emerald = false;  
+    bool ancient = false;  
+
+public:
+    AfkMine2();  // Constructor
+    void onNormalTick(LocalPlayer* localPlayer) override;  // Called every tick to perform actions
+    virtual void onEnable() override;  // Called when the module is enabled
+    void onDisable() override;   // Called when the module is disabled
+    int getFoodSlot();  
+};

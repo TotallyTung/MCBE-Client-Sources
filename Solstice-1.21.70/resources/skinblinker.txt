@@ -1,0 +1,9 @@
+This directory contains the skins for the SkinBlinker module.
+
+To specify a skin+cape combination, use the following format:
+- skinname_cape.png
+- skinname_skin.png
+Or, for slim skins:
+- skinnameslim_cape.png
+- skinnameslim_skin.png
+Optionally, you can specify a skin-only by not including a cape file.

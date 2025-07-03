@@ -1,0 +1,45 @@
+
+class ReadOnlyBinaryStream { /* Size=0x40 */
+  /* 0x0008 */ uint64_t mReadPointer;
+  /* 0x0010 */ bool mHasOverflowed;
+  /* 0x0018 */ const std::basic_string<char,std::char_traits<char>,std::allocator<char> > mOwnedBuffer;
+  /* 0x0038 */ const std::basic_string<char,std::char_traits<char>,std::allocator<char> >& mBuffer;
+  
+  ReadOnlyBinaryStream(const ReadOnlyBinaryStream&);
+  ReadOnlyBinaryStream(const std::basic_string<char,std::char_traits<char>,std::allocator<char> >&, bool);
+  ReadOnlyBinaryStream(std::basic_string<char,std::char_traits<char>,std::allocator<char> >&);
+  virtual ~ReadOnlyBinaryStream();
+  void operator=(const ReadOnlyBinaryStream&);
+  void setReadPointer(uint64_t);
+  uint64_t getReadPointer() const;
+  uint64_t getUnreadLength() const;
+  uint64_t getLength() const;
+  bool getBool();
+  unsigned char getByte();
+  uint16_t getUnsignedShort();
+  int16_t getSignedShort();
+  uint32_t getUnsignedInt();
+  int32_t getSignedBigEndianInt();
+  int32_t getSignedInt();
+  uint64_t getUnsignedInt64();
+  int64_t getSignedInt64();
+  uint32_t getUnsignedVarInt();
+  uint64_t getUnsignedVarInt64();
+  int32_t getVarInt();
+  int64_t getVarInt64();
+  double getDouble();
+  float getFloat();
+  float getFixedFloat(double);
+  float getNormalizedFloat();
+  void getString(std::basic_string<char,std::char_traits<char>,std::allocator<char> >&);
+  std::basic_string<char,std::char_traits<char>,std::allocator<char> > getString();
+  bool canReadBool() const;
+  int16_t getSignedBigEndianShort();
+  std::basic_string<char,std::char_traits<char>,std::allocator<char> > getByteArray(uint32_t);
+  void readVectorList(std::vector<unsigned int,std::allocator<unsigned int> >&);
+  const std::basic_string<char,std::char_traits<char>,std::allocator<char> >& getData() const;
+  unsigned char getUnsignedChar();
+  StreamReadResult getReadCompleteResult() const;
+  virtual bool read(void*, uint64_t);
+  virtual void* __vecDelDtor(uint32_t);
+};
