@@ -1,0 +1,511 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\GLMathematics.0.9.5.4\build\native\GLMathematics.props" Condition="Exists('..\packages\GLMathematics.0.9.5.4\build\native\GLMathematics.props')" />
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>17.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{8c6b4fcf-33a4-42fa-a27b-1a5c2e54d8e0}</ProjectGuid>
+    <RootNamespace>Boost</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+    <LinkTimeCodeGeneration>UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
+    <OptimizationLevel>MaxSpeed</OptimizationLevel>
+    <InlineExpansion>OnlyExplicitInline</InlineExpansion>
+    <FavorSizeOrSpeed>Size</FavorSizeOrSpeed>
+    <StringPooling>true</StringPooling>
+    <MinimalRebuild>true</MinimalRebuild>
+    <FunctionLevelLinking>true</FunctionLevelLinking>
+    <LinkTimeOptimization>true</LinkTimeOptimization>
+    <UseFullPaths>true</UseFullPaths>
+    <GenerateManifest>false</GenerateManifest>
+    <ProfileGuidedDatabase>false</ProfileGuidedDatabase>
+    <Profile>false</Profile>
+    <CreateHotpatchableImage>false</CreateHotpatchableImage>
+    <EnableUAC>false</EnableUAC>
+    <AdditionalOptions>/MP</AdditionalOptions>
+    <AdditionalOptions>/d2FH4- /d2F5 /d2F1</AdditionalOptions>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+    <LinkTimeCodeGeneration>UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
+    <OptimizationLevel>MaxSpeed</OptimizationLevel>
+    <InlineExpansion>OnlyExplicitInline</InlineExpansion>
+    <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+    <StringPooling>true</StringPooling>
+    <MinimalRebuild>true</MinimalRebuild>
+    <FunctionLevelLinking>true</FunctionLevelLinking>
+    <LinkTimeOptimization>true</LinkTimeOptimization>
+    <UseFullPaths>true</UseFullPaths>
+    <GenerateManifest>false</GenerateManifest>
+    <ProfileGuidedDatabase>false</ProfileGuidedDatabase>
+    <Profile>false</Profile>
+    <CreateHotpatchableImage>false</CreateHotpatchableImage>
+    <EnableUAC>false</EnableUAC>
+    <AdditionalOptions>/MP</AdditionalOptions>
+    <AdditionalOptions>/d2FH4- /d2F5 /d2F1</AdditionalOptions>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_DEBUG;Boost_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableUAC>false</EnableUAC>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;NDEBUG;Boost_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableUAC>false</EnableUAC>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>TurnOffAllWarnings</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>false</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;Boost_EXPORTS;NOMINMAX;_CRT_SECURE_NO_WARNINGS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <WholeProgramOptimization>true</WholeProgramOptimization>
+      <AdditionalOptions>/MP /Gm-</AdditionalOptions>
+      <AdditionalOptions>/bigobj /J</AdditionalOptions>
+      <AdditionalOptions>/MP /Gy</AdditionalOptions>
+      <AdditionalOptions>/MP</AdditionalOptions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableUAC>false</EnableUAC>
+      <AdditionalOptions>/LTCG:incremental</AdditionalOptions>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>TurnOffAllWarnings</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>false</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;Boost_EXPORTS;NOMINMAX;_CRT_SECURE_NO_WARNINGS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <WholeProgramOptimization>true</WholeProgramOptimization>
+      <AdditionalOptions>/MP /Gm-</AdditionalOptions>
+      <AdditionalOptions>/bigobj /J</AdditionalOptions>
+      <AdditionalOptions>/MP /Gy</AdditionalOptions>
+      <AdditionalOptions>/MP</AdditionalOptions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableUAC>false</EnableUAC>
+      <AdditionalOptions>/LTCG:incremental</AdditionalOptions>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="Client\Client.cpp" />
+    <ClCompile Include="Client\CommandManager\CommandManager.cpp" />
+    <ClCompile Include="Client\CommandManager\Commands\Baritone\Baraton.cpp" />
+    <ClCompile Include="Client\CommandManager\Commands\Test\Test.cpp" />
+    <ClCompile Include="Client\CommandManager\Commands\Friend\Friend.cpp" />
+    <ClCompile Include="Client\CommandManager\Commands\ItemId\ItemId.cpp" />
+    <ClCompile Include="Client\CommandManager\Commands\IRC\IRC.cpp" />
+    <ClCompile Include="Client\CommandManager\Commands\Bind\BindCommand.cpp" />
+    <ClCompile Include="Client\CommandManager\Commands\Save\SaveCommand.cpp" />
+    <ClCompile Include="Client\ConfigManager\ConfigManager.cpp" />
+    <ClCompile Include="Client\HookManager\HookManager.cpp" />
+    <ClCompile Include="Client\HookManager\Hooks\DirectX\DirectXHook.cpp" />
+    <ClCompile Include="Client\ModuleManager\ModuleManager.cpp" />
+    <ClCompile Include="Client\ModuleManager\Modules\Client\ArrayList.cpp" />
+    <ClCompile Include="Client\ModuleManager\Modules\Client\Clients.cpp" />
+    <ClCompile Include="Client\ModuleManager\Modules\Client\ClickGui.cpp" />
+    <ClCompile Include="Client\ModuleManager\Modules\Client\Colors.cpp" />
+    <ClCompile Include="Client\ModuleManager\Modules\Client\Config.cpp" />
+    <ClCompile Include="Client\ModuleManager\Modules\Client\CustomFont.cpp" />
+    <ClCompile Include="Client\ModuleManager\Modules\Client\HUD.cpp" />
+    <ClCompile Include="Client\ModuleManager\Modules\Client\Notifications.cpp" />
+    <ClCompile Include="Client\ModuleManager\Modules\Combat\AnchorAura.cpp" />
+    <ClCompile Include="Client\ModuleManager\Modules\Combat\AnchorNeo.cpp" />
+    <ClCompile Include="Client\ModuleManager\Modules\Combat\AutoCrystal.cpp" />
+    <ClCompile Include="Client\ModuleManager\Modules\Combat\Hitbox.cpp" />
+    <ClCompile Include="Client\ModuleManager\Modules\Combat\Reach.cpp" />
+    <ClCompile Include="Client\ModuleManager\Modules\Combat\Killaura.cpp" />
+    <ClCompile Include="Client\ModuleManager\Modules\Misc\Anticrystal.cpp" />
+    <ClCompile Include="Client\ModuleManager\Modules\Misc\ChatSuffix.cpp" />
+    <ClCompile Include="Client\ModuleManager\Modules\Misc\Clip.cpp" />
+    <ClCompile Include="Client\ModuleManager\Modules\Misc\Disabler.cpp" />
+    <ClCompile Include="Client\ModuleManager\Modules\Misc\NoPacket.cpp" />
+    <ClCompile Include="Client\ModuleManager\Modules\Misc\Timer.cpp" />
+    <ClCompile Include="Client\ModuleManager\Modules\Module.cpp" />
+    <ClCompile Include="Client\ModuleManager\Modules\Movement\Airjump.cpp" />
+    <ClCompile Include="Client\ModuleManager\Modules\Movement\AutoSprint.cpp" />
+    <ClCompile Include="Client\ModuleManager\Modules\Movement\Fly.cpp" />
+    <ClCompile Include="Client\ModuleManager\Modules\Movement\NoSlowDown.cpp" />
+    <ClCompile Include="Client\ModuleManager\Modules\Movement\ElytraFly.cpp" />
+    <ClCompile Include="Client\ModuleManager\Modules\Movement\Phase.cpp" />
+    <ClCompile Include="Client\ModuleManager\Modules\Movement\Velocity.cpp" />
+    <ClCompile Include="Client\ModuleManager\Modules\Player\Antibot.cpp" />
+    <ClCompile Include="Client\ModuleManager\Modules\Player\AutoOffhand.cpp" />
+    <ClCompile Include="Client\ModuleManager\Modules\Player\BlockReach.cpp" />
+    <ClCompile Include="Client\ModuleManager\Modules\Player\FastEat.cpp" />
+    <ClCompile Include="Client\ModuleManager\Modules\Player\PacketMine.cpp" />
+    <ClCompile Include="Client\ModuleManager\Modules\Player\Surround.cpp" />
+    <ClCompile Include="Client\ModuleManager\Modules\Player\Swing.cpp" />
+    <ClCompile Include="Client\ModuleManager\Modules\Render\CameraNoClip.cpp" />
+    <ClCompile Include="Client\ModuleManager\Modules\Render\CustomFov.cpp" />
+    <ClCompile Include="Client\ModuleManager\Modules\Render\ESP.cpp" />
+    <ClCompile Include="Client\ModuleManager\Modules\Render\Fullbright.cpp" />
+    <ClCompile Include="Client\ModuleManager\Modules\Render\HurtColor.cpp" />
+    <ClCompile Include="Client\ModuleManager\Modules\Render\NameTags.cpp" />
+    <ClCompile Include="Client\ModuleManager\Modules\Render\NoHurtcam.cpp" />
+    <ClCompile Include="Client\ModuleManager\Modules\Render\CustomSky.cpp" />
+    <ClCompile Include="Client\ModuleManager\Modules\Render\NoRender.cpp" />
+    <ClCompile Include="Client\ModuleManager\Modules\Render\StorageESP.cpp">
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\Pablo\Downloads\minhook;C:\Users\Pablo\Downloads\magic_enum;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\Pablo\Downloads\minhook;C:\Users\Pablo\Downloads\magic_enum;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="Client\ModuleManager\Modules\Render\Tracer.cpp" />
+    <ClCompile Include="dllmain.cpp" />
+    <ClCompile Include="Libs\ImFX\imfx.cpp" />
+    <ClCompile Include="Libs\ImGui\imgui.cpp" />
+    <ClCompile Include="Libs\ImGui\imgui_demo.cpp" />
+    <ClCompile Include="Libs\ImGui\imgui_draw.cpp" />
+    <ClCompile Include="Libs\ImGui\imgui_impl_dx11.cpp" />
+    <ClCompile Include="Libs\ImGui\imgui_impl_dx12.cpp" />
+    <ClCompile Include="Libs\ImGui\imgui_impl_win32.cpp" />
+    <ClCompile Include="Libs\ImGui\imgui_tables.cpp" />
+    <ClCompile Include="Libs\ImGui\imgui_widgets.cpp" />
+    <ClCompile Include="Libs\Kiero\kiero.cpp" />
+    <ClCompile Include="SDK\Classes\GameMode.cpp" />
+    <ClCompile Include="SDK\GameData.cpp" />
+    <ClCompile Include="SDK\MCTextFormat.cpp" />
+    <ClCompile Include="SDK\Signatures.cpp" />
+    <ClCompile Include="Utils\ImGuiUtils.cpp" />
+    <ClCompile Include="Utils\RenderUtils.cpp" />
+    <ClCompile Include="Utils\TargetUtils.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Client\Client.h" />
+    <ClInclude Include="Client\CommandManager\CommandManager.h" />
+    <ClInclude Include="Client\CommandManager\Commands\Command.h" />
+    <ClInclude Include="Client\CommandManager\Commands\Baritone\Baraton.h" />
+    <ClInclude Include="Client\CommandManager\Commands\Bind\BindCommand.h" />
+    <ClInclude Include="Client\CommandManager\Commands\IRC\IRC.h" />
+    <ClInclude Include="Client\CommandManager\Commands\ItemId\ItemId.h" />
+    <ClInclude Include="Client\CommandManager\Commands\Friend\Friend.h" />
+    <ClInclude Include="Client\CommandManager\Commands\Save\SaveCommand.h" />
+    <ClInclude Include="Client\CommandManager\Commands\Test\Test.h" />
+    <ClInclude Include="Client\ConfigManager\ConfigManager.h" />
+    <ClInclude Include="Client\HookManager\HooksManager.h" />
+    <ClInclude Include="Client\HookManager\Hooks\Actor\ActorGetBodyYawHook.h" />
+    <ClInclude Include="Client\HookManager\Hooks\Actor\ActorSlowDownHook.h" />
+    <ClInclude Include="Client\HookManager\Hooks\Actor\ActorGetHeadRotHook.h" />
+    <ClInclude Include="Client\HookManager\Hooks\Actor\ActorIsOnFireHook.h" />
+    <ClInclude Include="Client\HookManager\Hooks\Actor\ActorLerpMotionHook.h" />
+    <ClInclude Include="Client\HookManager\Hooks\Actor\ActorNormalTickHook.h" />
+    <ClInclude Include="Client\HookManager\Hooks\Actor\ActorShouldRenderHook.h" />
+    <ClInclude Include="Client\HookManager\Hooks\Actor\Actorrenderevent.h" />
+    <ClInclude Include="Client\HookManager\Hooks\Actor\ActorServerRots.h" />
+    <ClInclude Include="Client\HookManager\Hooks\Actor\ActorSwingHook.h" />
+    <ClInclude Include="Client\HookManager\Hooks\DirectX\DirectXHook.h" />
+    <ClInclude Include="Client\HookManager\Hooks\GameMode\GameModeGetPickRangeHook.h" />
+    <ClInclude Include="Client\HookManager\Hooks\GameMode\GameModeStartDestroyBlockHook.h" />
+    <ClInclude Include="Client\HookManager\Hooks\GameMode\GameModeStopDestroyBlockHook.h" />
+    <ClInclude Include="Client\HookManager\Hooks\Key\KeyMapHook.h" />
+    <ClInclude Include="Client\HookManager\Hooks\Key\KeyMouseHook.h" />
+    <ClInclude Include="Client\HookManager\Hooks\MinecraftUIRenderContext\DrawImageHook.h" />
+    <ClInclude Include="Client\HookManager\Hooks\MinecraftUIRenderContext\DrawTextHook.h" />
+    <ClInclude Include="Client\HookManager\Hooks\Mob\GetCurrentSwingDurationHook.h" />
+    <ClInclude Include="Client\HookManager\Hooks\Others\CauseHurtHook.h" />
+    <ClInclude Include="Client\HookManager\Hooks\Others\FontDrawTransformedHook.h" />
+    <ClInclude Include="Client\HookManager\Hooks\Others\GetCameraModeHook.h" />
+    <ClInclude Include="Client\HookManager\Hooks\Others\GetFovHook.h" />
+    <ClInclude Include="Client\HookManager\Hooks\Others\GetGammaHook.h" />
+    <ClInclude Include="Client\HookManager\Hooks\Others\NineSlicehook.h" />
+    <ClInclude Include="Client\HookManager\Hooks\Others\GetFogColorHook.h" />
+    <ClInclude Include="Client\HookManager\Hooks\Others\HIDControllerHook.h" />
+    <ClInclude Include="Client\HookManager\Hooks\Others\HurtColorHook.h" />
+    <ClInclude Include="Client\HookManager\Hooks\Others\onContainerScreenControllerTickEventhook.h" />
+    <ClInclude Include="Client\HookManager\Hooks\Others\RenderLevelHook.h" />
+    <ClInclude Include="Client\HookManager\Hooks\Others\ItemUseSlowdownHook.h" />
+    <ClInclude Include="Client\HookManager\Hooks\Others\SendPacketHook.h" />
+    <ClInclude Include="Client\HookManager\Hooks\Others\GlintColorHook.h" />
+    <ClInclude Include="Client\HookManager\Hooks\Others\ServerTickBlockBreakingHook.h" />
+    <ClInclude Include="Client\HookManager\Hooks\ScreenView.h" />
+    <ClInclude Include="Client\HookManager\Hooks\ScreenView\SetUpAndRenderHook.h" />
+    <ClInclude Include="Client\ModuleManager\ModuleManager.h" />
+    <ClInclude Include="Client\ModuleManager\Modules\Client\ArrayList.h" />
+    <ClInclude Include="Client\ModuleManager\Modules\Client\ClickGui.h" />
+    <ClInclude Include="Client\ModuleManager\Modules\Client\Colors.h" />
+    <ClInclude Include="Client\ModuleManager\Modules\Client\Config.h" />
+    <ClInclude Include="Client\ModuleManager\Modules\Client\CustomFont.h" />
+    <ClInclude Include="Client\ModuleManager\Modules\Client\HUD.h" />
+    <ClInclude Include="Client\ModuleManager\Modules\Client\Clients.h" />
+    <ClInclude Include="Client\ModuleManager\Modules\Client\Notifications.h" />
+    <ClInclude Include="Client\ModuleManager\Modules\Combat\AnchorAura.h" />
+    <ClInclude Include="Client\ModuleManager\Modules\Combat\AnchorNeo.h" />
+    <ClInclude Include="Client\ModuleManager\Modules\Combat\AutoCrystal.h" />
+    <ClInclude Include="Client\ModuleManager\Modules\Combat\Hitbox.h" />
+    <ClInclude Include="Client\ModuleManager\Modules\Combat\Killaura.h" />
+    <ClInclude Include="Client\ModuleManager\Modules\Combat\Reach.h" />
+    <ClInclude Include="Client\ModuleManager\Modules\Misc\Anticrystal.h" />
+    <ClInclude Include="Client\ModuleManager\Modules\Misc\ChatSuffix.h" />
+    <ClInclude Include="Client\ModuleManager\Modules\Misc\Clip.h" />
+    <ClInclude Include="Client\ModuleManager\Modules\Misc\Disabler.h" />
+    <ClInclude Include="Client\ModuleManager\Modules\Misc\NoPacket.h" />
+    <ClInclude Include="Client\ModuleManager\Modules\Misc\Timer.h" />
+    <ClInclude Include="Client\ModuleManager\Modules\Module.h" />
+    <ClInclude Include="Client\ModuleManager\Modules\Movement\Airjump.h" />
+    <ClInclude Include="Client\ModuleManager\Modules\Movement\AutoSprint.h" />
+    <ClInclude Include="Client\ModuleManager\Modules\Movement\Fly.h" />
+    <ClInclude Include="Client\ModuleManager\Modules\Movement\NoSlowDown.h" />
+    <ClInclude Include="Client\ModuleManager\Modules\Movement\ElytraFly.h" />
+    <ClInclude Include="Client\ModuleManager\Modules\Movement\Phase.h" />
+    <ClInclude Include="Client\ModuleManager\Modules\Movement\Velocity.h" />
+    <ClInclude Include="Client\ModuleManager\Modules\Player\Antibot.h" />
+    <ClInclude Include="Client\ModuleManager\Modules\Player\BlockReach.h" />
+    <ClInclude Include="Client\ModuleManager\Modules\Player\FastEat.h" />
+    <ClInclude Include="Client\ModuleManager\Modules\Player\AutoOffhand.h" />
+    <ClInclude Include="Client\ModuleManager\Modules\Player\PacketMine.h" />
+    <ClInclude Include="Client\ModuleManager\Modules\Player\Surround.h" />
+    <ClInclude Include="Client\ModuleManager\Modules\Player\Swing.h" />
+    <ClInclude Include="Client\ModuleManager\Modules\Render\CustomFov.h" />
+    <ClInclude Include="Client\ModuleManager\Modules\Render\ESP.h" />
+    <ClInclude Include="Client\ModuleManager\Modules\Render\CustomSky.h" />
+    <ClInclude Include="Client\ModuleManager\Modules\Render\Fullbright.h" />
+    <ClInclude Include="Client\ModuleManager\Modules\Render\HurtColor.h" />
+    <ClInclude Include="Client\ModuleManager\Modules\Render\CameraNoClip.h" />
+    <ClInclude Include="Client\ModuleManager\Modules\Render\NameTags.h" />
+    <ClInclude Include="Client\ModuleManager\Modules\Render\NoHurtcam.h" />
+    <ClInclude Include="Client\ModuleManager\Modules\Render\NoRender.h" />
+    <ClInclude Include="Client\ModuleManager\Modules\Render\StorageESP.h" />
+    <ClInclude Include="Client\ModuleManager\Modules\Render\Tracer.h" />
+    <ClInclude Include="Libs\Fonts\Mojangles.h" />
+    <ClInclude Include="Libs\Fonts\NotoSans.h" />
+    <ClInclude Include="Libs\Fonts\ProductSansLight.h" />
+    <ClInclude Include="Libs\Fonts\ProductSansRegular.h" />
+    <ClInclude Include="Libs\ImFX\imfx.h" />
+    <ClInclude Include="Libs\ImGui\imconfig.h" />
+    <ClInclude Include="Libs\ImGui\imgui.h" />
+    <ClInclude Include="Libs\ImGui\imgui_impl_dx11.h" />
+    <ClInclude Include="Libs\ImGui\imgui_impl_dx12.h" />
+    <ClInclude Include="Libs\ImGui\imgui_impl_win32.h" />
+    <ClInclude Include="Libs\ImGui\imgui_internal.h" />
+    <ClInclude Include="Libs\ImGui\imstb_rectpack.h" />
+    <ClInclude Include="Libs\ImGui\imstb_textedit.h" />
+    <ClInclude Include="Libs\ImGui\imstb_truetype.h" />
+    <ClInclude Include="Libs\Json.hpp" />
+    <ClInclude Include="Libs\Kiero\kiero.h" />
+    <ClInclude Include="Libs\Libhat\libhat.hpp" />
+    <ClInclude Include="Libs\Libhat\libhat\Callable.hpp" />
+    <ClInclude Include="Libs\Libhat\libhat\CompileTime.hpp" />
+    <ClInclude Include="Libs\Libhat\libhat\Concepts.hpp" />
+    <ClInclude Include="Libs\Libhat\libhat\Defines.hpp" />
+    <ClInclude Include="Libs\Libhat\libhat\MemoryProtector.hpp" />
+    <ClInclude Include="Libs\Libhat\libhat\Process.hpp" />
+    <ClInclude Include="Libs\Libhat\libhat\Result.hpp" />
+    <ClInclude Include="Libs\Libhat\libhat\Scanner.hpp" />
+    <ClInclude Include="Libs\Libhat\libhat\Signature.hpp" />
+    <ClInclude Include="SDK\Classes\ContainerScreenController.h" />
+    <ClInclude Include="SDK\Classes\ContainerScreenControllerEvent.h" />
+    <ClInclude Include="SDK\Classes\ContainerScreenControllerTickEventContainerScreenControllerTickEvent.h" />
+    <ClInclude Include="SDK\Classes\ScreenController.h" />
+    <ClInclude Include="SDK\Classes\ScreenControllerEvent.h" />
+    <ClInclude Include="SDK\Classes\IContainerManager.h" />
+    <ClInclude Include="SDK\Classes\Actor.h" />
+    <ClInclude Include="SDK\Classes\ActorUniqueID.h" />
+    <ClInclude Include="SDK\Classes\UIProfanityContext.h" />
+    <ClInclude Include="SDK\Classes\Block.h" />
+    <ClInclude Include="SDK\Classes\BlockLegacy.h" />
+    <ClInclude Include="SDK\Classes\BlockSource.h" />
+    <ClInclude Include="SDK\Classes\CaretMeasureData.h" />
+    <ClInclude Include="SDK\Classes\ClientInstance.h" />
+    <ClInclude Include="SDK\Classes\ComplexInventoryTransaction.h" />
+    <ClInclude Include="SDK\Classes\Container.h" />
+    <ClInclude Include="SDK\Classes\StrictEntityContext.h" />
+    <ClInclude Include="SDK\Classes\Dimension.h" />
+    <ClInclude Include="SDK\Classes\FontBitmap.h" />
+    <ClInclude Include="SDK\Classes\GameMode.h" />
+    <ClInclude Include="SDK\Classes\GuiData.h" />
+    <ClInclude Include="SDK\Classes\HashedString.h" />
+    <ClInclude Include="SDK\Classes\HIDController.h" />
+    <ClInclude Include="SDK\Classes\Inventory.h" />
+    <ClInclude Include="SDK\Classes\Directmovementproxy.h" />
+    <ClInclude Include="SDK\Classes\InventoryAction.h" />
+    <ClInclude Include="SDK\Classes\InventorySource.h" />
+    <ClInclude Include="SDK\Classes\InventoryTransactionManager.h" />
+    <ClInclude Include="SDK\Classes\LoopbackPacketSender.h" />
+    <ClInclude Include="SDK\Classes\Material.h" />
+    <ClInclude Include="SDK\Classes\Minecraft.h" />
+    <ClInclude Include="SDK\Classes\MinecraftPacket.h" />
+    <ClInclude Include="SDK\Classes\MinecraftTimer.h" />
+    <ClInclude Include="SDK\Classes\MobEffectInstance.h" />
+    <ClInclude Include="SDK\Classes\NetworkItemStackDescriptor.h" />
+    <ClInclude Include="SDK\Classes\Packet.h" />
+    <ClInclude Include="SDK\Classes\PlayerInventory.h" />
+    <ClInclude Include="SDK\Classes\Item.h" />
+    <ClInclude Include="SDK\Classes\ItemStack.h" />
+    <ClInclude Include="SDK\Classes\ItemStackBase.h" />
+    <ClInclude Include="SDK\Classes\Level.h" />
+    <ClInclude Include="SDK\Classes\setupShaderParameters.h" />
+    <ClInclude Include="SDK\Classes\LevelRenderer.h" />
+    <ClInclude Include="SDK\Classes\LevelRendererPlayer.h" />
+    <ClInclude Include="SDK\Classes\LocalPlayer.h" />
+    <ClInclude Include="SDK\Classes\MaterialPtr.h" />
+    <ClInclude Include="SDK\Classes\MinecraftGame.h" />
+    <ClInclude Include="SDK\Classes\MinecraftUIRenderContext.h" />
+    <ClInclude Include="SDK\Classes\Mob.h" />
+    <ClInclude Include="SDK\Classes\Options.h" />
+    <ClInclude Include="SDK\Classes\PathStruct.h" />
+    <ClInclude Include="SDK\Classes\Player.h" />
+    <ClInclude Include="SDK\Classes\RootUIControl.h" />
+    <ClInclude Include="SDK\Classes\ScreenContext.h" />
+    <ClInclude Include="SDK\Classes\ScreenView.h" />
+    <ClInclude Include="SDK\Classes\ActorRotate.h" />
+    <ClInclude Include="SDK\Classes\SimpleContainer.h" />
+    <ClInclude Include="SDK\Classes\Tessellator.h" />
+    <ClInclude Include="SDK\Classes\TextHolder.h" />
+    <ClInclude Include="SDK\Classes\TextMeasureData.h" />
+    <ClInclude Include="SDK\Classes\TextureData.h" />
+    <ClInclude Include="SDK\Classes\UILayer.h" />
+    <ClInclude Include="SDK\Classes\VisualTree.h" />
+    <ClInclude Include="SDK\Classes\WeakPtr.h" />
+    <ClInclude Include="SDK\Classes\Moveinputhand.h" />
+    <ClInclude Include="SDK\Components\ActorRotationComponent.h" />
+    <ClInclude Include="SDK\Components\ActorTypeComponent.h" />
+    <ClInclude Include="SDK\Components\AABBShapeComponent.h" />
+    <ClInclude Include="SDK\Components\FallDistanceComponent.h" />
+    <ClInclude Include="SDK\Components\Flags\OnGroundFlag.h" />
+    <ClInclude Include="SDK\Components\Flags\JumpFromGroundRequestFlag.h" />
+    <ClInclude Include="SDK\Components\MobEffectsComponent.h" />
+    <ClInclude Include="SDK\Components\RenderPositionComponent.h" />
+    <ClInclude Include="SDK\Components\RuntimeIDComponent.h" />
+    <ClInclude Include="SDK\Components\StateVectorComponent.h" />
+    <ClInclude Include="SDK\Components\ActorHeadRotationComponent.h" />
+    <ClInclude Include="SDK\Components\MobBodyRotationComponent.h" />
+    <ClInclude Include="SDK\GameData.h" />
+    <ClInclude Include="SDK\MCTextFormat.h" />
+    <ClInclude Include="SDK\Signatures.h" />
+    <ClInclude Include="Utils\ColorUtils.h" />
+    <ClInclude Include="Utils\TargetUtils.h" />
+    <ClInclude Include="Utils\ImGuiUtils.h" />
+    <ClInclude Include="Utils\Math.h" />
+    <ClInclude Include="Utils\MemoryUtils.h" />
+    <ClInclude Include="Utils\RenderUtils.h" />
+    <ClInclude Include="Utils\Timerutils.h" />
+    <ClInclude Include="Utils\Utils.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="Libs\Libhat\libhat.lib" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+    <Import Project="..\packages\native.magic_enum.0.9.5\build\native\native.magic_enum.targets" Condition="Exists('..\packages\native.magic_enum.0.9.5\build\native\native.magic_enum.targets')" />
+    <Import Project="..\packages\glm.1.0.1\build\native\glm.targets" Condition="Exists('..\packages\glm.1.0.1\build\native\glm.targets')" />
+    <Import Project="..\packages\minhook.1.3.3\build\native\minhook.targets" Condition="Exists('..\packages\minhook.1.3.3\build\native\minhook.targets')" />
+    <Import Project="..\packages\cpprestsdk.v141.2.10.12.1\build\native\cpprestsdk.v141.targets" Condition="Exists('..\packages\cpprestsdk.v141.2.10.12.1\build\native\cpprestsdk.v141.targets')" />
+    <Import Project="..\packages\cpprestsdk.v142.2.10.15\build\native\cpprestsdk.v142.targets" Condition="Exists('..\packages\cpprestsdk.v142.2.10.15\build\native\cpprestsdk.v142.targets')" />
+  </ImportGroup>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\GLMathematics.0.9.5.4\build\native\GLMathematics.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\GLMathematics.0.9.5.4\build\native\GLMathematics.props'))" />
+    <Error Condition="!Exists('..\packages\native.magic_enum.0.9.5\build\native\native.magic_enum.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\native.magic_enum.0.9.5\build\native\native.magic_enum.targets'))" />
+    <Error Condition="!Exists('..\packages\glm.1.0.1\build\native\glm.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\glm.1.0.1\build\native\glm.targets'))" />
+    <Error Condition="!Exists('..\packages\minhook.1.3.3\build\native\minhook.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\minhook.1.3.3\build\native\minhook.targets'))" />
+    <Error Condition="!Exists('..\packages\cpprestsdk.v141.2.10.12.1\build\native\cpprestsdk.v141.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\cpprestsdk.v141.2.10.12.1\build\native\cpprestsdk.v141.targets'))" />
+    <Error Condition="!Exists('..\packages\cpprestsdk.v142.2.10.15\build\native\cpprestsdk.v142.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\cpprestsdk.v142.2.10.15\build\native\cpprestsdk.v142.targets'))" />
+  </Target>
+</Project>

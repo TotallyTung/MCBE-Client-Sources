@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>17.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{0ec27d1d-2028-470e-98b7-0bfceed4ef4e}</ProjectGuid>
+    <RootNamespace>KyrieClient</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_DEBUG;KYRIECLIENT_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableUAC>false</EnableUAC>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;NDEBUG;KYRIECLIENT_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableUAC>false</EnableUAC>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;KYRIECLIENT_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableUAC>false</EnableUAC>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NOMINMAX;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <AdditionalOptions>
+      </AdditionalOptions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableUAC>false</EnableUAC>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="Client\Client.cpp" />
+    <ClCompile Include="Client\ModuleManager\ModuleManager.cpp" />
+    <ClCompile Include="Client\ModuleManager\Modules\Client\Arraylist\Arraylist.cpp" />
+    <ClCompile Include="Client\ModuleManager\Modules\Client\ClickGUI\ClickGui.cpp" />
+    <ClCompile Include="Client\ModuleManager\Modules\Client\Colors\Colors.cpp" />
+    <ClCompile Include="Client\ModuleManager\Modules\Client\CustomFont\CustomFont.cpp" />
+    <ClCompile Include="Client\ModuleManager\Modules\Client\HUD\HUD.cpp" />
+    <ClCompile Include="Client\ModuleManager\Modules\Client\Notifications\Notifications.cpp" />
+    <ClCompile Include="Client\ModuleManager\Modules\Client\Unject\Unject.cpp" />
+    <ClCompile Include="Client\ModuleManager\Modules\Module.cpp" />
+    <ClCompile Include="Client\ModuleManager\Modules\Movement\Sprint\Sprint.cpp" />
+    <ClCompile Include="Client\ModuleManager\Modules\Player\BlockReach\BlockReach.cpp" />
+    <ClCompile Include="Client\ModuleManager\Modules\Render\CustomFov\CustomFov.cpp" />
+    <ClCompile Include="Client\ModuleManager\Modules\Render\FullBright\FullBright.cpp" />
+    <ClCompile Include="Client\ModuleManager\Modules\Render\Swing\Swing.cpp" />
+    <ClCompile Include="Client\NotificationManager\NotificationManager.cpp" />
+    <ClCompile Include="dllmain.cpp" />
+    <ClCompile Include="ImFX\imfx.cpp" />
+    <ClCompile Include="ImGui\imgui.cpp" />
+    <ClCompile Include="ImGui\imgui_demo.cpp" />
+    <ClCompile Include="ImGui\imgui_draw.cpp" />
+    <ClCompile Include="ImGui\imgui_impl_dx11.cpp" />
+    <ClCompile Include="ImGui\imgui_impl_dx12.cpp" />
+    <ClCompile Include="ImGui\imgui_impl_win32.cpp" />
+    <ClCompile Include="ImGui\imgui_tables.cpp" />
+    <ClCompile Include="ImGui\imgui_widgets.cpp" />
+    <ClCompile Include="Kiero\Kiero.cpp" />
+    <ClCompile Include="Memory\GameData\GameData.cpp" />
+    <ClCompile Include="Memory\Hooks\DrawImageHook\DrawImageHook.cpp" />
+    <ClCompile Include="Memory\Hooks\GameModeGetPickRangeHook\GameModeGetPickRangeHook.cpp" />
+    <ClCompile Include="Memory\Hooks\GetFovHook\GetFovHook.cpp" />
+    <ClCompile Include="Memory\Hooks\GetGammaHook\GetGammaHook.cpp" />
+    <ClCompile Include="Memory\Hooks\HookManager.cpp" />
+    <ClCompile Include="Memory\Hooks\KeyMapHook\KeyMapHook.cpp" />
+    <ClCompile Include="Memory\Hooks\KeyMouseHook\KeyMouseHook.cpp" />
+    <ClCompile Include="Memory\Hooks\LevelRendererPlayerUpdateCameraHook\LevelRendererPlayerUpdateCameraHook.cpp" />
+    <ClCompile Include="Memory\Hooks\MinecraftGameOnAppSuspendedHook\MinecraftGameOnAppSuspendedHook.cpp" />
+    <ClCompile Include="Memory\Hooks\MobGetCurrentSwingDurationHook\MobGetCurrentSwingDurationHook.cpp" />
+    <ClCompile Include="Memory\Hooks\MobSetSprintingHook\MobSetSprintingHook.cpp" />
+    <ClCompile Include="Memory\Hooks\RenderContextHook\RenderContextHook.cpp" />
+    <ClCompile Include="Memory\Hooks\SwapChainHook\SwapChainHook.cpp" />
+    <ClCompile Include="Memory\Memory.cpp" />
+    <ClCompile Include="Utils\ColorUtils.cpp" />
+    <ClCompile Include="Utils\RenderUtils.cpp" />
+    <ClCompile Include="Utils\Utils.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Client\Client.h" />
+    <ClInclude Include="Client\ModuleManager\ModuleManager.h" />
+    <ClInclude Include="Client\ModuleManager\Modules\Client\Arraylist\Arraylist.h" />
+    <ClInclude Include="Client\ModuleManager\Modules\Client\ClickGUI\ClickGui.h" />
+    <ClInclude Include="Client\ModuleManager\Modules\Client\Colors\Colors.h" />
+    <ClInclude Include="Client\ModuleManager\Modules\Client\CustomFont\CustomFont.h" />
+    <ClInclude Include="Client\ModuleManager\Modules\Client\HUD\HUD.h" />
+    <ClInclude Include="Client\ModuleManager\Modules\Client\Notifications\Notifications.h" />
+    <ClInclude Include="Client\ModuleManager\Modules\Client\Unject\Unject.h" />
+    <ClInclude Include="Client\ModuleManager\Modules\Module.h" />
+    <ClInclude Include="Client\ModuleManager\Modules\Movement\Sprint\Sprint.h" />
+    <ClInclude Include="Client\ModuleManager\Modules\Player\BlockReach\BlockReach.h" />
+    <ClInclude Include="Client\ModuleManager\Modules\Render\CustomFov\CustomFov.h" />
+    <ClInclude Include="Client\ModuleManager\Modules\Render\FullBright\FullBright.h" />
+    <ClInclude Include="Client\ModuleManager\Modules\Render\Swing\Swing.h" />
+    <ClInclude Include="Client\NotificationManager\NotificationManager.h" />
+    <ClInclude Include="Fonts\Arial.h" />
+    <ClInclude Include="Fonts\Mojangles.h" />
+    <ClInclude Include="ImFX\imfx.h" />
+    <ClInclude Include="ImGui\imconfig.h" />
+    <ClInclude Include="ImGui\imgui.h" />
+    <ClInclude Include="ImGui\imgui_impl_dx11.h" />
+    <ClInclude Include="ImGui\imgui_impl_dx12.h" />
+    <ClInclude Include="ImGui\imgui_impl_win32.h" />
+    <ClInclude Include="ImGui\imgui_internal.h" />
+    <ClInclude Include="ImGui\imstb_rectpack.h" />
+    <ClInclude Include="ImGui\imstb_textedit.h" />
+    <ClInclude Include="ImGui\imstb_truetype.h" />
+    <ClInclude Include="Kiero\Kiero.h" />
+    <ClInclude Include="Memory\GameData\GameData.h" />
+    <ClInclude Include="Memory\Hooks\DrawImageHook\DrawImageHook.h" />
+    <ClInclude Include="Memory\Hooks\GameModeGetPickRangeHook\GameModeGetPickRangeHook.h" />
+    <ClInclude Include="Memory\Hooks\GetFovHook\GetFovHook.h" />
+    <ClInclude Include="Memory\Hooks\GetGammaHook\GetGammaHook.h" />
+    <ClInclude Include="Memory\Hooks\HookManager.h" />
+    <ClInclude Include="Memory\Hooks\KeyMapHook\KeyMapHook.h" />
+    <ClInclude Include="Memory\Hooks\KeyMouseHook\KeyMouseHook.h" />
+    <ClInclude Include="Memory\Hooks\LevelRendererPlayerUpdateCameraHook\LevelRendererPlayerUpdateCameraHook.h" />
+    <ClInclude Include="Memory\Hooks\MinecraftGameOnAppSuspendedHook\MinecraftGameOnAppSuspendedHook.h" />
+    <ClInclude Include="Memory\Hooks\MobGetCurrentSwingDurationHook\MobGetCurrentSwingDurationHook.h" />
+    <ClInclude Include="Memory\Hooks\MobSetSprintingHook\MobSetSprintingHook.h" />
+    <ClInclude Include="Memory\Hooks\RenderContextHook\RenderContextHook.h" />
+    <ClInclude Include="Memory\Hooks\SwapChainHook\SwapChainHook.h" />
+    <ClInclude Include="Memory\Memory.h" />
+    <ClInclude Include="SDK\Actor.h" />
+    <ClInclude Include="SDK\ClientInstance.h" />
+    <ClInclude Include="SDK\Components\RenderPositionComponent.h" />
+    <ClInclude Include="SDK\EntityContext.h" />
+    <ClInclude Include="SDK\FilePath.h" />
+    <ClInclude Include="SDK\GameMode.h" />
+    <ClInclude Include="SDK\GuiData.h" />
+    <ClInclude Include="SDK\Level.h" />
+    <ClInclude Include="SDK\LevelRenderer.h" />
+    <ClInclude Include="SDK\LevelRendererPlayer.h" />
+    <ClInclude Include="SDK\MinecraftUIRenderContext.h" />
+    <ClInclude Include="SDK\Mob.h" />
+    <ClInclude Include="SDK\Player.h" />
+    <ClInclude Include="SDK\TexturePtr.h" />
+    <ClInclude Include="Utils\ColorUtils.h" />
+    <ClInclude Include="Utils\Math.h" />
+    <ClInclude Include="Utils\RenderUtils.h" />
+    <ClInclude Include="Utils\Utils.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+    <Import Project="..\packages\minhook.1.3.3\build\native\minhook.targets" Condition="Exists('..\packages\minhook.1.3.3\build\native\minhook.targets')" />
+  </ImportGroup>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\minhook.1.3.3\build\native\minhook.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\minhook.1.3.3\build\native\minhook.targets'))" />
+  </Target>
+</Project>

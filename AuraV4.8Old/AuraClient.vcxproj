@@ -1,0 +1,723 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="BetaConf|Win32">
+      <Configuration>BetaConf</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="BetaConf|x64">
+      <Configuration>BetaConf</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>15.0</VCProjectVersion>
+    <ProjectGuid>{499784D2-7EA3-4CBE-BD93-EC0DBBC42FCD}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>AuraV4</ProjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <SpectreMitigation>false</SpectreMitigation>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='BetaConf|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+    <SpectreMitigation>false</SpectreMitigation>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <SpectreMitigation>false</SpectreMitigation>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='BetaConf|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <SpectreMitigation>false</SpectreMitigation>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='BetaConf|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='BetaConf|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='BetaConf|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LibraryPath>C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Lib\x64;D:\ProgrammeX\Dxx\Lib\x64;$(ProjectDir)minhook;$(LibraryPath)</LibraryPath>
+    <IncludePath>D:\ProgrammeX\Dxx\Include;$(ProjectDir)include\glm;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LibraryPath>C:\Program Files %28x86%29\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.16.27023\lib\x64;$(ProjectDir)minhook;$(VC_LibraryPath_x64);$(WindowsSDK_LibraryPath_x64);$(NETFXKitsDir)Lib\um\x64</LibraryPath>
+    <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);$(ProjectDir)include\glm</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='BetaConf|x64'">
+    <LibraryPath>C:\Program Files %28x86%29\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.16.27023\lib\x64;$(ProjectDir)minhook;$(VC_LibraryPath_x64);$(WindowsSDK_LibraryPath_x64);$(NETFXKitsDir)Lib\um\x64</LibraryPath>
+    <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);$(ProjectDir)include\glm</IncludePath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;PacketClient_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <Optimization>Disabled</Optimization>
+      <AdditionalOptions>/Zc:__cplusplus %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <Link>
+      <TargetMachine>MachineX86</TargetMachine>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <AssemblyDebug>true</AssemblyDebug>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;PacketClient_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <AdditionalOptions>/Zc:__cplusplus %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <Link>
+      <TargetMachine>MachineX86</TargetMachine>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='BetaConf|Win32'">
+    <ClCompile>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;PacketClient_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <AdditionalOptions>/Zc:__cplusplus %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <Link>
+      <TargetMachine>MachineX86</TargetMachine>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <WholeProgramOptimization>false</WholeProgramOptimization>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <AdditionalOptions>/Zc:__cplusplus %(AdditionalOptions)</AdditionalOptions>
+      <PreprocessorDefinitions>NOMINMAX;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+    </ClCompile>
+    <Link />
+    <Link>
+      <LinkTimeCodeGeneration>Default</LinkTimeCodeGeneration>
+      <AdditionalDependencies>
+      </AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <DebugInformationFormat>None</DebugInformationFormat>
+      <AdditionalOptions>/Zc:__cplusplus %(AdditionalOptions)</AdditionalOptions>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <WholeProgramOptimization>false</WholeProgramOptimization>
+      <PreprocessorDefinitions>_WINDLL;NOMINMAX;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='BetaConf|x64'">
+    <ClCompile>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <DebugInformationFormat>None</DebugInformationFormat>
+      <AdditionalOptions>/Zc:__cplusplus %(AdditionalOptions)</AdditionalOptions>
+      <PreprocessorDefinitions>_BETA;NOMINMAX;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <WholeProgramOptimization>false</WholeProgramOptimization>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <None Include="resources\block.3dobj">
+      <FileType>Document</FileType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="AuraClient\Command\CommandMgr.cpp" />
+    <ClCompile Include="AuraClient\Command\Commands\BindCommand.cpp" />
+    <ClCompile Include="AuraClient\Command\Commands\CommandBlockExploitCommand.cpp" />
+    <ClCompile Include="AuraClient\Command\Commands\ConfigCommand.cpp" />
+    <ClCompile Include="AuraClient\Command\Commands\CoordsCommand.cpp" />
+    <ClCompile Include="AuraClient\Command\Commands\DamageCommand.cpp" />
+    <ClCompile Include="AuraClient\Command\Commands\DupeCommand.cpp" />
+    <ClCompile Include="AuraClient\Command\Commands\EjectCommand.cpp" />
+    <ClCompile Include="AuraClient\Command\Commands\FriendListCommand.cpp" />
+    <ClCompile Include="AuraClient\Command\Commands\GameModeCommand.cpp" />
+    <ClCompile Include="AuraClient\Command\Commands\HelpCommand.cpp" />
+    <ClCompile Include="AuraClient\Command\Commands\HideCommand.cpp" />
+    <ClCompile Include="AuraClient\Command\Commands\ICommand.cpp" />
+    <ClCompile Include="AuraClient\Command\Commands\IDCommand.cpp" />
+    <ClCompile Include="AuraClient\Command\Commands\IRCCommand.cpp" />
+    <ClCompile Include="AuraClient\Command\Commands\KitCommand.cpp" />
+    <ClCompile Include="AuraClient\Command\Commands\ModulesCommand.cpp" />
+    <ClCompile Include="AuraClient\Command\Commands\NameSpoofCommand.cpp" />
+    <ClCompile Include="AuraClient\Command\Commands\NbtCommand.cpp" />
+    <ClCompile Include="AuraClient\Command\Commands\PanicCommand.cpp" />
+    <ClCompile Include="AuraClient\Command\Commands\PlayerTPCommand.cpp" />
+    <ClCompile Include="AuraClient\Command\Commands\VClipCommand.cpp" />
+    <ClCompile Include="AuraClient\Command\Commands\SayCommand.cpp" />
+    <ClCompile Include="AuraClient\Command\Commands\ServerCommand.cpp" />
+    <ClCompile Include="AuraClient\Command\Commands\setoffhandCommand.cpp" />
+    <ClCompile Include="AuraClient\Command\Commands\SetprefixCommand.cpp" />
+    <ClCompile Include="AuraClient\Command\Commands\ShowCommand.cpp" />
+    <ClCompile Include="AuraClient\Command\Commands\SpammerCommand.cpp" />
+    <ClCompile Include="AuraClient\Command\Commands\TeleportCommand.cpp" />
+    <ClCompile Include="AuraClient\Command\Commands\ToggleCommand.cpp" />
+    <ClCompile Include="AuraClient\Command\Commands\TopCommand.cpp" />
+    <ClCompile Include="AuraClient\Command\Commands\UnbindCommand.cpp" />
+    <ClCompile Include="AuraClient\Config\AccountInformation.cpp" />
+    <ClCompile Include="AuraClient\Config\ConfigManager.cpp" />
+    <ClCompile Include="AuraClient\Config\SettingManager.cpp" />
+    <ClCompile Include="AuraClient\Module\Modules\Combat\AutoObsidian.cpp" />
+    <ClCompile Include="AuraClient\Module\Modules\Combat\AutoTrap.cpp" />
+    <ClCompile Include="AuraClient\Module\Modules\Combat\BowAimbot.cpp" />
+    <ClCompile Include="AuraClient\Module\Modules\Combat\BowSpam.cpp" />
+    <ClCompile Include="AuraClient\Module\Modules\Combat\CrystalAuraGK.cpp" />
+    <ClCompile Include="AuraClient\Module\Modules\Combat\CrystalAuraOW.cpp" />
+    <ClCompile Include="AuraClient\Module\Modules\Combat\AutoCrystalRewrite.cpp" />
+    <ClCompile Include="AuraClient\Module\Modules\Combat\DamageBug.cpp" />
+    <ClCompile Include="AuraClient\Module\Modules\Combat\FastCrossbow.cpp" />
+    <ClCompile Include="AuraClient\Module\Modules\Combat\FightBot.cpp" />
+    <ClCompile Include="AuraClient\Module\Modules\Combat\InsideAura.cpp" />
+    <ClCompile Include="AuraClient\Module\Modules\Combat\RainMode.cpp" />
+    <ClCompile Include="AuraClient\Module\Modules\Combat\RiptideKillaura.cpp" />
+    <ClCompile Include="AuraClient\Module\Modules\Combat\surround.cpp" />
+    <ClCompile Include="AuraClient\Module\Modules\Combat\Switcher2.cpp" />
+    <ClCompile Include="AuraClient\Module\Modules\Combat\TargetDown.cpp" />
+    <ClCompile Include="AuraClient\Module\Modules\Exploit\Auto32K.cpp" />
+    <ClCompile Include="AuraClient\Module\Modules\Exploit\AutoRespawn.cpp" />
+    <ClCompile Include="AuraClient\Module\Modules\Exploit\ClientSpoof.cpp" />
+    <ClCompile Include="AuraClient\Module\Modules\Exploit\EntityFly.cpp" />
+    <ClCompile Include="AuraClient\Module\Modules\Exploit\FastUse.cpp" />
+    <ClCompile Include="AuraClient\Module\Modules\Exploit\KillMessage.cpp" />
+    <ClCompile Include="AuraClient\Module\Modules\Exploit\NoLagBack.cpp" />
+    <ClCompile Include="AuraClient\Module\Modules\Other\AutoEZ.cpp" />
+    <ClCompile Include="AuraClient\Module\Modules\Other\AutoGG.cpp" />
+    <ClCompile Include="AuraClient\Module\Modules\Player\PacketMine.cpp" />
+    <ClCompile Include="AuraClient\Module\Modules\Exploit\PingSpoof.cpp" />
+    <ClCompile Include="AuraClient\Module\Modules\Exploit\SpeedMine2.cpp" />
+    <ClCompile Include="AuraClient\Module\Modules\Movement\2b2espeed.cpp" />
+    <ClCompile Include="AuraClient\Module\Modules\Movement\AutoWalk.cpp" />
+    <ClCompile Include="AuraClient\Module\Modules\Movement\CubeSpeed.cpp" />
+    <ClCompile Include="AuraClient\Module\Modules\Movement\ElytraFly.cpp" />
+    <ClCompile Include="AuraClient\Module\Modules\Movement\Glide.cpp" />
+    <ClCompile Include="AuraClient\Module\Modules\Movement\Jetpack.cpp" />
+    <ClCompile Include="AuraClient\Module\Modules\Movement\NoClip.cpp" />
+    <ClCompile Include="AuraClient\Module\Modules\Movement\NoClipGlide.cpp" />
+    <ClCompile Include="AuraClient\Module\Modules\Other\Announcer.cpp" />
+    <ClCompile Include="AuraClient\Module\Modules\Other\AutoConfig.cpp" />
+    <ClCompile Include="AuraClient\Module\Modules\Other\Background.cpp" />
+    <ClCompile Include="AuraClient\Module\Modules\Other\login.cpp" />
+    <ClCompile Include="AuraClient\Module\Modules\Other\popcounter.cpp" />
+    <ClCompile Include="AuraClient\Module\Modules\Player\AntiAnvil.cpp" />
+    <ClCompile Include="AuraClient\Module\Modules\Player\AutoArmor.cpp" />
+    <ClCompile Include="AuraClient\Module\Modules\Player\AutoGapple.cpp" />
+    <ClCompile Include="AuraClient\Module\Modules\Player\AutoHotbar.cpp" />
+    <ClCompile Include="AuraClient\Module\Modules\Player\Autolog.cpp" />
+    <ClCompile Include="AuraClient\Module\Modules\Player\FastEast.cpp" />
+    <ClCompile Include="AuraClient\Module\Modules\Player\HealthCheck.cpp" />
+    <ClCompile Include="AuraClient\Module\Modules\Visual\CombatGearInfo.cpp" />
+    <ClCompile Include="AuraClient\Module\Modules\Visual\CombatModuleInfo.cpp" />
+    <ClCompile Include="AuraClient\Module\Modules\Visual\HoleEsp.cpp" />
+    <ClCompile Include="AuraClient\Module\Modules\Visual\InventoryView.cpp" />
+    <ClCompile Include="AuraClient\Module\Modules\Visual\PlayerList2.cpp" />
+    <ClCompile Include="AuraClient\Module\Modules\Visual\Search.cpp" />
+    <ClCompile Include="AuraClient\Module\Modules\Visual\ViewModel.cpp" />
+    <ClCompile Include="AuraClient\Module\Modules\Visual\Waila.cpp" />
+    <ClCompile Include="AuraClient\Module\Modules\Visual\Welcome.cpp" />
+    <ClCompile Include="AuraClient\Notifications\NotificationManager.cpp" />
+    <ClCompile Include="Utils\ColorUtil.cpp" />
+    <ClCompile Include="Utils\DrawUtils.cpp" />
+    <ClCompile Include="AuraClient\FriendList\FriendList.cpp" />
+    <ClCompile Include="Utils\GuiUtils.cpp" />
+    <ClCompile Include="Utils\ImmediateGui.cpp" />
+    <ClCompile Include="AuraClient\Loader.cpp" />
+    <ClCompile Include="AuraClient\Menu\ClickGui.cpp" />
+    <ClCompile Include="AuraClient\Menu\ConfigManagerMenu.cpp" />
+    <ClCompile Include="AuraClient\Menu\HudEditor.cpp" />
+    <ClCompile Include="AuraClient\Menu\TabGui.cpp" />
+    <ClCompile Include="AuraClient\Module\ModuleManager.cpp" />
+    <ClCompile Include="AuraClient\Module\Modules\Combat\Aimbot.cpp" />
+    <ClCompile Include="AuraClient\Module\Modules\Visual\Animations.cpp" />
+    <ClCompile Include="AuraClient\Module\Modules\Combat\AntiBot.cpp" />
+    <ClCompile Include="AuraClient\Module\Modules\Exploit\AntiImmobile.cpp" />
+    <ClCompile Include="AuraClient\Module\Modules\Movement\AntiVoid.cpp" />
+    <ClCompile Include="AuraClient\Module\Modules\Combat\AutoClicker.cpp" />
+    <ClCompile Include="AuraClient\Module\Modules\Combat\AutoPot.cpp" />
+    <ClCompile Include="AuraClient\Module\Modules\Player\AutoTotem.cpp" />
+    <ClCompile Include="AuraClient\Module\Modules\Visual\BlockESP.cpp" />
+    <ClCompile Include="AuraClient\Module\Modules\Visual\BlockOutline.cpp" />
+    <ClCompile Include="AuraClient\Module\Modules\Visual\BreadCrumbs.cpp" />
+    <ClCompile Include="AuraClient\Module\Modules\Other\ClickTP.cpp" />
+    <ClCompile Include="AuraClient\Module\Modules\ConfigManagerMod.cpp" />
+    <ClCompile Include="AuraClient\Module\Modules\Visual\CustomSky.cpp" />
+    <ClCompile Include="AuraClient\Module\Modules\Other\ChatSuffix.cpp" />
+    <ClCompile Include="AuraClient\Module\Modules\DebugMenu.cpp" />
+    <ClCompile Include="AuraClient\Module\Modules\Player\FastPlace.cpp" />
+    <ClCompile Include="AuraClient\Module\Modules\Movement\FastStop.cpp" />
+    <ClCompile Include="AuraClient\Module\Modules\Other\HitEffects.cpp" />
+    <ClCompile Include="AuraClient\Module\Modules\Other\ItemTP.cpp" />
+    <ClCompile Include="AuraClient\Module\Modules\Movement\Jesus.cpp" />
+    <ClCompile Include="AuraClient\Module\Modules\Exploit\NoPacket.cpp" />
+    <ClCompile Include="AuraClient\Module\Modules\Visual\NoRender.cpp" />
+    <ClCompile Include="AuraClient\Module\Modules\Visual\Notifications.cpp" />
+    <ClCompile Include="AuraClient\Module\Modules\Visual\SessionInfo.cpp" />
+    <ClCompile Include="AuraClient\Module\Modules\Movement\Sneak.cpp" />
+    <ClCompile Include="AuraClient\Module\Modules\Other\Spammer.cpp" />
+    <ClCompile Include="AuraClient\Module\Modules\Movement\Speed.cpp" />
+    <ClCompile Include="AuraClient\Module\Modules\Player\Blink.cpp" />
+    <ClCompile Include="AuraClient\Module\Modules\Visual\Camera.cpp" />
+    <ClCompile Include="AuraClient\Module\Modules\Exploit\Chat.cpp" />
+    <ClCompile Include="AuraClient\Module\Modules\Visual\ChestESP.cpp" />
+    <ClCompile Include="AuraClient\Module\Modules\Player\ChestStealer.cpp" />
+    <ClCompile Include="AuraClient\Module\Modules\ClickGUIMod.cpp" />
+    <ClCompile Include="AuraClient\Module\Modules\Combat\Criticals.cpp" />
+    <ClCompile Include="AuraClient\Module\Modules\Combat\CrystalAura.cpp" />
+    <ClCompile Include="AuraClient\Module\Modules\Other\Derp.cpp" />
+    <ClCompile Include="AuraClient\Module\Modules\Visual\ESP.cpp" />
+    <ClCompile Include="AuraClient\Module\Modules\Exploit\FreeTP.cpp" />
+    <ClCompile Include="AuraClient\Module\Modules\Other\Breaker.cpp" />
+    <ClCompile Include="AuraClient\Module\Modules\Movement\Flight.cpp" />
+    <ClCompile Include="AuraClient\Module\Modules\Combat\HitBoxes.cpp" />
+    <ClCompile Include="AuraClient\Module\Modules\Visual\ArrayList.cpp" />
+    <ClCompile Include="AuraClient\Module\Modules\Visual\Interface.cpp" />
+    <ClCompile Include="AuraClient\Module\Modules\Exploit\SpeedMine.cpp" />
+    <ClCompile Include="AuraClient\Module\Modules\Player\InvManager.cpp" />
+    <ClCompile Include="AuraClient\Module\Modules\Movement\InvMove.cpp" />
+    <ClCompile Include="AuraClient\Module\Modules\Combat\Killaura.cpp" />
+    <ClCompile Include="AuraClient\Module\Modules\Movement\LongJump.cpp" />
+    <ClCompile Include="AuraClient\Module\Modules\Other\MCF.cpp" />
+    <ClCompile Include="AuraClient\Module\Modules\Module.cpp" />
+    <ClCompile Include="AuraClient\Module\Modules\Visual\NameTags.cpp" />
+    <ClCompile Include="AuraClient\Module\Modules\Exploit\NoFall.cpp" />
+    <ClCompile Include="AuraClient\Module\Modules\Movement\NoSlow.cpp" />
+    <ClCompile Include="AuraClient\Module\Modules\Player\NoSwing.cpp" />
+    <ClCompile Include="AuraClient\Module\Modules\Other\Nuker.cpp" />
+    <ClCompile Include="AuraClient\Module\Modules\Other\PacketLogger.cpp" />
+    <ClCompile Include="AuraClient\Module\Modules\Exploit\Phase.cpp" />
+    <ClCompile Include="AuraClient\Module\Modules\Visual\Radar.cpp" />
+    <ClCompile Include="AuraClient\Module\Modules\Combat\Reach.cpp" />
+    <ClCompile Include="AuraClient\Module\Modules\Player\Scaffold.cpp" />
+    <ClCompile Include="AuraClient\Module\Modules\Movement\Step.cpp" />
+    <ClCompile Include="AuraClient\Module\Modules\Visual\TargetHUD.cpp" />
+    <ClCompile Include="AuraClient\Module\Modules\Movement\TargetStrafeOld.cpp" />
+    <ClCompile Include="AuraClient\Module\Modules\Combat\Teams.cpp" />
+    <ClCompile Include="AuraClient\Module\Modules\Player\BlockReach.cpp" />
+    <ClCompile Include="AuraClient\Module\Modules\Other\TestModule.cpp" />
+    <ClCompile Include="AuraClient\Module\Modules\Player\Timer.cpp" />
+    <ClCompile Include="AuraClient\Module\Modules\Visual\Ambience.cpp" />
+    <ClCompile Include="AuraClient\Module\Modules\Other\ToggleSounds.cpp" />
+    <ClCompile Include="AuraClient\Module\Modules\Combat\TPAura.cpp" />
+    <ClCompile Include="AuraClient\Module\Modules\Combat\TriggerBot.cpp" />
+    <ClCompile Include="AuraClient\Module\Modules\Movement\Velocity.cpp" />
+    <ClCompile Include="AuraClient\Module\Modules\Visual\Watermark.cpp" />
+    <ClCompile Include="AuraClient\Module\Modules\Player\XP.cpp" />
+    <ClCompile Include="AuraClient\Module\Modules\Visual\Xray.cpp" />
+    <ClCompile Include="AuraClient\Module\Modules\Movement\Spider.cpp" />
+    <ClCompile Include="AuraClient\Module\Modules\Movement\TargetStrafe.cpp" />
+    <ClCompile Include="AuraClient\Module\Modules\Combat\Switcher.cpp" />
+    <ClCompile Include="AuraClient\Module\Modules\Movement\KBFly.cpp" />
+    <ClCompile Include="AuraClient\Module\Modules\Other\FallSave.cpp" />
+    <ClCompile Include="AuraClient\Module\Modules\Player\NoJumpDelay.cpp" />
+    <ClCompile Include="AuraClient\Module\Modules\Exploit\PacketMultiplier.cpp" />
+    <ClCompile Include="AuraClient\Module\Modules\Exploit\Crasher.cpp" />
+    <ClCompile Include="Memory\GameData.cpp" />
+    <ClCompile Include="Memory\Hooks.cpp" />
+    <ClCompile Include="Memory\SlimMem.cpp" />
+    <ClCompile Include="pch.cpp" />
+    <ClCompile Include="SDK\CBlockLegacy.cpp" />
+    <ClCompile Include="SDK\CCamera.cpp" />
+    <ClCompile Include="SDK\CChestBlockActor.cpp" />
+    <ClCompile Include="SDK\CClientInstance.cpp" />
+    <ClCompile Include="SDK\CComplexInventoryTransaction.cpp" />
+    <ClCompile Include="SDK\CEntity.cpp" />
+    <ClCompile Include="SDK\CGameMode.cpp" />
+    <ClCompile Include="SDK\CInventory.cpp" />
+    <ClCompile Include="SDK\CInventoryTransaction.cpp" />
+    <ClCompile Include="SDK\CItem.cpp" />
+    <ClCompile Include="SDK\CMinecraftUIRenderContext.cpp" />
+    <ClCompile Include="SDK\CMoveInputHandler.cpp" />
+    <ClCompile Include="SDK\CPacket.cpp" />
+    <ClCompile Include="SDK\MatrixStack.cpp" />
+    <ClCompile Include="SDK\Tag.cpp" />
+    <ClCompile Include="SDK\Tessellator.cpp" />
+    <ClCompile Include="SDK\TextHolder.cpp" />
+    <ClCompile Include="Utils\Logger.cpp" />
+    <ClCompile Include="Utils\MoveUtil.cpp" />
+    <ClCompile Include="Utils\SkinUtil.cpp" />
+    <ClCompile Include="Utils\TargetUtil.cpp" />
+    <ClCompile Include="Utils\TextFormat.cpp" />
+    <ClCompile Include="Utils\TimerUtil.cpp" />
+    <ClCompile Include="Utils\Utils.cpp" />
+    <ClCompile Include="Utils\VoxelIntersector.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="AuraClient\Module\Modules\Combat\FightBot.h" />
+    <ClInclude Include="AuraClient\Module\Modules\Other\AutoEZ.h" />
+    <ClInclude Include="AuraClient\Module\Modules\Other\AutoGG.h" />
+    <ClInclude Include="AuraClient\Module\Modules\Visual\ViewModel.h" />
+    <ClInclude Include="include\glm\glm\geometric.hpp" />
+    <ClInclude Include="include\glm\glm\simd\geometric.h" />
+    <ClInclude Include="Memory\pch.h" />
+    <ClInclude Include="AuraClient\Command\CommandMgr.h" />
+    <ClInclude Include="AuraClient\Command\Commands\BindCommand.h" />
+    <ClInclude Include="AuraClient\Command\Commands\CommandBlockExploitCommand.h" />
+    <ClInclude Include="AuraClient\Command\Commands\ConfigCommand.h" />
+    <ClInclude Include="AuraClient\Command\Commands\CoordsCommand.h" />
+    <ClInclude Include="AuraClient\Command\Commands\DamageCommand.h" />
+    <ClInclude Include="AuraClient\Command\Commands\DupeCommand.h" />
+    <ClInclude Include="AuraClient\Command\Commands\EjectCommand.h" />
+    <ClInclude Include="AuraClient\Command\Commands\EnchantCommand.h" />
+    <ClInclude Include="AuraClient\Command\Commands\FriendListCommand.h" />
+    <ClInclude Include="AuraClient\Command\Commands\GameModeCommand.h" />
+    <ClInclude Include="AuraClient\Command\Commands\GiveCommand.h" />
+    <ClInclude Include="AuraClient\Command\Commands\HelpCommand.h" />
+    <ClInclude Include="AuraClient\Command\Commands\HideCommand.h" />
+    <ClInclude Include="AuraClient\Command\Commands\ICommand.h" />
+    <ClInclude Include="AuraClient\Command\Commands\IDCommand.h" />
+    <ClInclude Include="AuraClient\Command\Commands\IRCCommand.h" />
+    <ClInclude Include="AuraClient\Command\Commands\KitCommand.h" />
+    <ClInclude Include="AuraClient\Command\Commands\ModulesCommand.h" />
+    <ClInclude Include="AuraClient\Command\Commands\NameSpoofCommand.h" />
+    <ClInclude Include="AuraClient\Command\Commands\NbtCommand.h" />
+    <ClInclude Include="AuraClient\Command\Commands\PanicCommand.h" />
+    <ClInclude Include="AuraClient\Command\Commands\pch.h" />
+    <ClInclude Include="AuraClient\Command\Commands\PlayerTPCommand.h" />
+    <ClInclude Include="AuraClient\Command\Commands\VClipCommand.h" />
+    <ClInclude Include="AuraClient\Command\Commands\SayCommand.h" />
+    <ClInclude Include="AuraClient\Command\Commands\ServerCommand.h" />
+    <ClInclude Include="AuraClient\Command\Commands\setoffhandCommand.h" />
+    <ClInclude Include="AuraClient\Command\Commands\SetprefixCommand.h" />
+    <ClInclude Include="AuraClient\Command\Commands\ShowCommand.h" />
+    <ClInclude Include="AuraClient\Command\Commands\SpammerCommand.h" />
+    <ClInclude Include="AuraClient\Command\Commands\TeleportCommand.h" />
+    <ClInclude Include="AuraClient\Command\Commands\ToggleCommand.h" />
+    <ClInclude Include="AuraClient\Command\Commands\TopCommand.h" />
+    <ClInclude Include="AuraClient\Command\Commands\UnbindCommand.h" />
+    <ClInclude Include="AuraClient\Config\AccountInformation.h" />
+    <ClInclude Include="AuraClient\Config\ConfigManager.h" />
+    <ClInclude Include="AuraClient\Config\SettingManager.h" />
+    <ClInclude Include="AuraClient\Module\Modules\bangchucai.h" />
+    <ClInclude Include="AuraClient\Module\Modules\Combat\AntiCrystal.h" />
+    <ClInclude Include="AuraClient\Module\Modules\Combat\AutoObsidian.h" />
+    <ClInclude Include="AuraClient\Module\Modules\Combat\AutoTrap.h" />
+    <ClInclude Include="AuraClient\Module\Modules\Combat\BowAimbot.h" />
+    <ClInclude Include="AuraClient\Module\Modules\Combat\BowSpam.h" />
+    <ClInclude Include="AuraClient\Module\Modules\Combat\CrystalAuraGK.h" />
+    <ClInclude Include="AuraClient\Module\Modules\Combat\CrystalAuraOW.h" />
+    <ClInclude Include="AuraClient\Module\Modules\Combat\AutoCrystalRewrite.h" />
+    <ClInclude Include="AuraClient\Module\Modules\Combat\DamageBug.h" />
+    <ClInclude Include="AuraClient\Module\Modules\Combat\FastCrossbow.h" />
+    <ClInclude Include="AuraClient\Module\Modules\Combat\InsideAura.h" />
+    <ClInclude Include="AuraClient\Module\Modules\Combat\RainMode.h" />
+    <ClInclude Include="AuraClient\Module\Modules\Combat\RiptideKillaura.h" />
+    <ClInclude Include="AuraClient\Module\Modules\Combat\Surround.h" />
+    <ClInclude Include="AuraClient\Module\Modules\Combat\Switcher2.h" />
+    <ClInclude Include="AuraClient\Module\Modules\Combat\TargetDown.h" />
+    <ClInclude Include="AuraClient\Module\Modules\Exploit\Auto32K.h" />
+    <ClInclude Include="AuraClient\Module\Modules\Exploit\AutoRespawn.h" />
+    <ClInclude Include="AuraClient\Module\Modules\Exploit\ClientSpoof.h" />
+    <ClInclude Include="AuraClient\Module\Modules\Exploit\EntityFly.h" />
+    <ClInclude Include="AuraClient\Module\Modules\Exploit\FastUse.h" />
+    <ClInclude Include="AuraClient\Module\Modules\Exploit\KillMessage.h" />
+    <ClInclude Include="AuraClient\Module\Modules\Exploit\NoLagBack.h" />
+    <ClInclude Include="AuraClient\Module\Modules\Player\PacketMine.h" />
+    <ClInclude Include="AuraClient\Module\Modules\Exploit\PingSpoof.h" />
+    <ClInclude Include="AuraClient\Module\Modules\Exploit\SpeedMine2.h" />
+    <ClInclude Include="AuraClient\Module\Modules\Movement\2b2espeed.h" />
+    <ClInclude Include="AuraClient\Module\Modules\Movement\AutoWalk.h" />
+    <ClInclude Include="AuraClient\Module\Modules\Movement\CubeSpeed.h" />
+    <ClInclude Include="AuraClient\Module\Modules\Movement\ElytraFly.h" />
+    <ClInclude Include="AuraClient\Module\Modules\Movement\Glide.h" />
+    <ClInclude Include="AuraClient\Module\Modules\Movement\Jetpack.h" />
+    <ClInclude Include="AuraClient\Module\Modules\Movement\NoClip.h" />
+    <ClInclude Include="AuraClient\Module\Modules\Movement\NoClipGlide.h" />
+    <ClInclude Include="AuraClient\Module\Modules\Other\Announcer.h" />
+    <ClInclude Include="AuraClient\Module\Modules\Other\AutoConfig.h" />
+    <ClInclude Include="AuraClient\Module\Modules\Other\Background.h" />
+    <ClInclude Include="AuraClient\Module\Modules\Other\login.h" />
+    <ClInclude Include="AuraClient\Module\Modules\Other\popcounter.h" />
+    <ClInclude Include="AuraClient\Module\Modules\Player\AntiAnvil.h" />
+    <ClInclude Include="AuraClient\Module\Modules\Player\AutoArmor.h" />
+    <ClInclude Include="AuraClient\Module\Modules\Player\AutoGapple.h" />
+    <ClInclude Include="AuraClient\Module\Modules\Player\AutoHotbar.h" />
+    <ClInclude Include="AuraClient\Module\Modules\Player\Autolog.h" />
+    <ClInclude Include="AuraClient\Module\Modules\Player\Emote.h" />
+    <ClInclude Include="AuraClient\Module\Modules\Player\FastEat.h" />
+    <ClInclude Include="AuraClient\Module\Modules\Player\HealthCheck.h" />
+    <ClInclude Include="AuraClient\Module\Modules\Visual\CombatGearInfo.h" />
+    <ClInclude Include="AuraClient\Module\Modules\Visual\CombatModuleInfo.h" />
+    <ClInclude Include="AuraClient\Module\Modules\Visual\HoleEsp.h" />
+    <ClInclude Include="AuraClient\Module\Modules\Visual\InventoryView.h" />
+    <ClInclude Include="AuraClient\Module\Modules\Visual\MoreFov.h" />
+    <ClInclude Include="AuraClient\Module\Modules\Visual\PlayerList2.h" />
+    <ClInclude Include="AuraClient\Module\Modules\Visual\Search.h" />
+    <ClInclude Include="AuraClient\Module\Modules\Visual\Waila.h" />
+    <ClInclude Include="AuraClient\Module\Modules\Visual\Welcome.h" />
+    <ClInclude Include="AuraClient\Notifications\NotificationManager.h" />
+    <ClInclude Include="Utils\ColorUtil.h" />
+    <ClInclude Include="Utils\DrawUtils.h" />
+    <ClInclude Include="AuraClient\FriendList\FriendList.h" />
+    <ClInclude Include="Utils\GuiUtils.h" />
+    <ClInclude Include="Utils\ImmediateGui.h" />
+    <ClInclude Include="AuraClient\Loader.h" />
+    <ClInclude Include="AuraClient\Menu\ClickGui.h" />
+    <ClInclude Include="AuraClient\Menu\ConfigManagerMenu.h" />
+    <ClInclude Include="AuraClient\Menu\HudEditor.h" />
+    <ClInclude Include="AuraClient\Menu\TabGui.h" />
+    <ClInclude Include="AuraClient\Module\ModuleManager.h" />
+    <ClInclude Include="AuraClient\Module\Modules\Combat\Aimbot.h" />
+    <ClInclude Include="AuraClient\Module\Modules\Visual\Animations.h" />
+    <ClInclude Include="AuraClient\Module\Modules\Combat\AntiBot.h" />
+    <ClInclude Include="AuraClient\Module\Modules\Exploit\AntiImmobile.h" />
+    <ClInclude Include="AuraClient\Module\Modules\Movement\AntiVoid.h" />
+    <ClInclude Include="AuraClient\Module\Modules\Combat\AutoClicker.h" />
+    <ClInclude Include="AuraClient\Module\Modules\Combat\AutoPot.h" />
+    <ClInclude Include="AuraClient\Module\Modules\Player\AutoTotem.h" />
+    <ClInclude Include="AuraClient\Module\Modules\Visual\BlockESP.h" />
+    <ClInclude Include="AuraClient\Module\Modules\Visual\BlockOutline.h" />
+    <ClInclude Include="AuraClient\Module\Modules\Visual\BreadCrumbs.h" />
+    <ClInclude Include="AuraClient\Module\Modules\Other\ClickTP.h" />
+    <ClInclude Include="AuraClient\Module\Modules\Other\ChatSuffix.h" />
+    <ClInclude Include="AuraClient\Module\Modules\ConfigManagerMod.h" />
+    <ClInclude Include="AuraClient\Module\Modules\Visual\CustomSky.h" />
+    <ClInclude Include="AuraClient\Module\Modules\DebugMenu.h" />
+    <ClInclude Include="AuraClient\Module\Modules\Player\FastPlace.h" />
+    <ClInclude Include="AuraClient\Module\Modules\Movement\FastStop.h" />
+    <ClInclude Include="framework.h" />
+    <ClInclude Include="AuraClient\Module\Modules\Other\HitEffects.h" />
+    <ClInclude Include="AuraClient\Module\Modules\Other\ItemTP.h" />
+    <ClInclude Include="AuraClient\Module\Modules\Movement\Jesus.h" />
+    <ClInclude Include="AuraClient\Module\Modules\Exploit\NoPacket.h" />
+    <ClInclude Include="AuraClient\Module\Modules\Visual\NoRender.h" />
+    <ClInclude Include="AuraClient\Module\Modules\Visual\Notifications.h" />
+    <ClInclude Include="AuraClient\Module\Modules\Other\PacketLogger.h" />
+    <ClInclude Include="AuraClient\Module\Modules\pch.h" />
+    <ClInclude Include="AuraClient\Module\Modules\Visual\SessionInfo.h" />
+    <ClInclude Include="AuraClient\Module\Modules\Movement\Sneak.h" />
+    <ClInclude Include="AuraClient\Module\Modules\Other\Spammer.h" />
+    <ClInclude Include="AuraClient\Module\Modules\Movement\Sprint.h" />
+    <ClInclude Include="AuraClient\Module\Modules\Movement\Speed.h" />
+    <ClInclude Include="AuraClient\Module\Modules\Player\Blink.h" />
+    <ClInclude Include="AuraClient\Module\Modules\Visual\Camera.h" />
+    <ClInclude Include="AuraClient\Module\Modules\Exploit\Chat.h" />
+    <ClInclude Include="AuraClient\Module\Modules\Visual\ChestESP.h" />
+    <ClInclude Include="AuraClient\Module\Modules\Player\ChestStealer.h" />
+    <ClInclude Include="AuraClient\Module\Modules\ClickGUIMod.h" />
+    <ClInclude Include="AuraClient\Module\Modules\Combat\Criticals.h" />
+    <ClInclude Include="AuraClient\Module\Modules\Combat\CrystalAura.h" />
+    <ClInclude Include="AuraClient\Module\Modules\Other\Derp.h" />
+    <ClInclude Include="AuraClient\Module\Modules\Visual\ESP.h" />
+    <ClInclude Include="AuraClient\Module\Modules\Player\Freecam.h" />
+    <ClInclude Include="AuraClient\Module\Modules\Visual\Freelook.h" />
+    <ClInclude Include="AuraClient\Module\Modules\Exploit\FreeTP.h" />
+    <ClInclude Include="AuraClient\Module\Modules\Other\Breaker.h" />
+    <ClInclude Include="AuraClient\Module\Modules\Movement\Flight.h" />
+    <ClInclude Include="AuraClient\Module\Modules\Combat\HitBoxes.h" />
+    <ClInclude Include="AuraClient\Module\Modules\Visual\ArrayList.h" />
+    <ClInclude Include="AuraClient\Module\Modules\Visual\Interface.h" />
+    <ClInclude Include="AuraClient\Module\Modules\Exploit\SpeedMine.h" />
+    <ClInclude Include="AuraClient\Module\Modules\Player\InvManager.h" />
+    <ClInclude Include="AuraClient\Module\Modules\Movement\InvMove.h" />
+    <ClInclude Include="AuraClient\Module\Modules\Combat\Killaura.h" />
+    <ClInclude Include="AuraClient\Module\Modules\Movement\LongJump.h" />
+    <ClInclude Include="AuraClient\Module\Modules\Other\MCF.h" />
+    <ClInclude Include="AuraClient\Module\Modules\Module.h" />
+    <ClInclude Include="AuraClient\Module\Modules\Visual\NameTags.h" />
+    <ClInclude Include="AuraClient\Module\Modules\Exploit\NoFall.h" />
+    <ClInclude Include="AuraClient\Module\Modules\Movement\NoSlow.h" />
+    <ClInclude Include="AuraClient\Module\Modules\Player\NoSwing.h" />
+    <ClInclude Include="AuraClient\Module\Modules\Other\Nuker.h" />
+    <ClInclude Include="AuraClient\Module\Modules\Exploit\Phase.h" />
+    <ClInclude Include="AuraClient\Module\Modules\Visual\Radar.h" />
+    <ClInclude Include="AuraClient\Module\Modules\Combat\Reach.h" />
+    <ClInclude Include="AuraClient\Module\Modules\Player\Scaffold.h" />
+    <ClInclude Include="AuraClient\Module\Modules\Movement\Step.h" />
+    <ClInclude Include="AuraClient\Module\Modules\Visual\TargetHUD.h" />
+    <ClInclude Include="AuraClient\Module\Modules\Movement\TargetStrafeOld.h" />
+    <ClInclude Include="AuraClient\Module\Modules\Combat\Teams.h" />
+    <ClInclude Include="AuraClient\Module\Modules\Player\BlockReach.h" />
+    <ClInclude Include="AuraClient\Module\Modules\Other\TestModule.h" />
+    <ClInclude Include="AuraClient\Module\Modules\Player\Timer.h" />
+    <ClInclude Include="AuraClient\Module\Modules\Visual\Ambience.h" />
+    <ClInclude Include="AuraClient\Module\Modules\Other\ToggleSounds.h" />
+    <ClInclude Include="AuraClient\Module\Modules\Combat\TPAura.h" />
+    <ClInclude Include="AuraClient\Module\Modules\Combat\TriggerBot.h" />
+    <ClInclude Include="AuraClient\Module\Modules\Movement\Velocity.h" />
+    <ClInclude Include="AuraClient\Module\Modules\Visual\Watermark.h" />
+    <ClInclude Include="AuraClient\Module\Modules\Player\XP.h" />
+    <ClInclude Include="AuraClient\Module\Modules\Visual\Xray.h" />
+    <ClInclude Include="AuraClient\Module\Modules\Visual\Zoom.h" />
+    <ClInclude Include="AuraClient\Module\Modules\Movement\Spider.h" />
+    <ClInclude Include="AuraClient\Module\Modules\Movement\TargetStrafe.h" />
+    <ClInclude Include="AuraClient\Module\Modules\Combat\Switcher.h" />
+    <ClInclude Include="AuraClient\Module\Modules\Movement\KBFly.h" />
+    <ClInclude Include="AuraClient\Module\Modules\Other\FallSave.h" />
+    <ClInclude Include="AuraClient\Module\Modules\Player\NoJumpDelay.h" />
+    <ClInclude Include="AuraClient\Module\Modules\Exploit\PacketMultiplier.h" />
+    <ClInclude Include="AuraClient\Module\Modules\Exploit\Crasher.h" />
+    <ClInclude Include="AuraClient\Scripting\Functions\AuraClientFunctions.h" />
+    <ClInclude Include="include\atlrx.h" />
+    <ClInclude Include="include\chakra\ChakraCommon.h" />
+    <ClInclude Include="include\chakra\ChakraCommonWindows.h" />
+    <ClInclude Include="include\chakra\ChakraCore.h" />
+    <ClInclude Include="include\chakra\ChakraCoreWindows.h" />
+    <ClInclude Include="include\chakra\ChakraDebug.h" />
+    <ClInclude Include="include\d3dx11.h" />
+    <ClInclude Include="include\d3dx11async.h" />
+    <ClInclude Include="include\d3dx11core.h" />
+    <ClInclude Include="include\d3dx11effect.h" />
+    <ClInclude Include="include\imgui\examples\imgui_impl_dx11.h" />
+    <ClInclude Include="include\imgui\examples\imgui_impl_win32.h" />
+    <ClInclude Include="include\imgui\imconfig.h" />
+    <ClInclude Include="include\imgui\imgui.h" />
+    <ClInclude Include="include\imgui\imgui_internal.h" />
+    <ClInclude Include="include\imgui\imstb_rectpack.h" />
+    <ClInclude Include="include\imgui\imstb_textedit.h" />
+    <ClInclude Include="include\imgui\imstb_truetype.h" />
+    <ClInclude Include="include\imgui\misc\cpp\imgui_stdlib.h" />
+    <ClInclude Include="include\imgui\misc\single_file\imgui_single_file.h" />
+    <ClInclude Include="include\RegExp.h" />
+    <ClInclude Include="include\StringProcess.h" />
+    <ClInclude Include="include\WinHttpClient.h" />
+    <ClInclude Include="Memory\GameData.h" />
+    <ClInclude Include="Memory\Hooks.h" />
+    <ClInclude Include="Memory\MinHook.h" />
+    <ClInclude Include="Memory\SlimMem.h" />
+    <ClInclude Include="pch.h" />
+    <ClInclude Include="SDK\CAttribute.h" />
+    <ClInclude Include="SDK\CBlockLegacy.h" />
+    <ClInclude Include="SDK\CCamera.h" />
+    <ClInclude Include="SDK\CChestBlockActor.h" />
+    <ClInclude Include="SDK\CClientInstance.h" />
+    <ClInclude Include="SDK\CClientInstanceScreenModel.h" />
+    <ClInclude Include="SDK\CComplexInventoryTransaction.h" />
+    <ClInclude Include="SDK\CEntity.h" />
+    <ClInclude Include="SDK\CEntityList.h" />
+    <ClInclude Include="SDK\CGameMode.h" />
+    <ClInclude Include="SDK\CGameSettingsInput.h" />
+    <ClInclude Include="SDK\CHIDController.h" />
+    <ClInclude Include="SDK\CImageBuffer.h" />
+    <ClInclude Include="SDK\CInventory.h" />
+    <ClInclude Include="SDK\CInventoryTransaction.h" />
+    <ClInclude Include="SDK\CItem.h" />
+    <ClInclude Include="SDK\CLoopbackPacketSender.h" />
+    <ClInclude Include="SDK\CMinecraftUIRenderContext.h" />
+    <ClInclude Include="SDK\CMoveInputHandler.h" />
+    <ClInclude Include="SDK\CPacket.h" />
+    <ClInclude Include="SDK\CRakNetInstance.h" />
+    <ClInclude Include="SDK\CUIScene.h" />
+    <ClInclude Include="SDK\MatrixStack.h" />
+    <ClInclude Include="SDK\MojangsonToken.h" />
+    <ClInclude Include="SDK\Tag.h" />
+    <ClInclude Include="SDK\Tessellator.h" />
+    <ClInclude Include="SDK\TextHolder.h" />
+    <ClInclude Include="SDK\Weather.h" />
+    <ClInclude Include="Utils\ChakraHelper.h" />
+    <ClInclude Include="Utils\DllHelper.h" />
+    <ClInclude Include="Utils\MoveUtil.h" />
+    <ClInclude Include="Utils\TimerUtil.h" />
+    <ClInclude Include="Utils\HMath.h" />
+    <ClInclude Include="Utils\Json.hpp" />
+    <ClInclude Include="Utils\keys.h" />
+    <ClInclude Include="Utils\Logger.h" />
+    <ClInclude Include="Utils\SkinUtil.h" />
+    <ClInclude Include="Utils\TargetUtil.h" />
+    <ClInclude Include="Utils\TextFormat.h" />
+    <ClInclude Include="Utils\Utils.h" />
+    <ClInclude Include="Utils\VoxelIntersector.h" />
+    <ClInclude Include="Utils\xorstr.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+    <Import Project="packages\Microsoft.XAudio2.Redist.1.2.8\build\native\Microsoft.XAudio2.Redist.targets" Condition="Exists('packages\Microsoft.XAudio2.Redist.1.2.8\build\native\Microsoft.XAudio2.Redist.targets')" />
+    <Import Project="packages\directxtk_desktop_2017.2021.11.8.1\build\native\directxtk_desktop_2017.targets" Condition="Exists('packages\directxtk_desktop_2017.2021.11.8.1\build\native\directxtk_desktop_2017.targets')" />
+  </ImportGroup>
+</Project>

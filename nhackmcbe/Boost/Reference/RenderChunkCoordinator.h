@@ -1,0 +1,62 @@
+
+class RenderChunkCoordinator : public LevelListener { /* Size=0x150 */
+  /* 0x0000: fields for LevelListener */
+  /* 0x0008 */ float mSweepAndPruneRatio;
+  /* 0x0010 */ std::_List_const_iterator<std::_List_val<std::_List_simple_types<std::pair<SubChunkPos const ,std::weak_ptr<RenderChunkShared> > > > > mSweepAndPruneIterator;
+  /* 0x0018 */ std::unordered_map<SubChunkPos,std::weak_ptr<RenderChunkShared>,std::hash<SubChunkPos>,std::equal_to<SubChunkPos>,std::allocator<std::pair<SubChunkPos const ,std::weak_ptr<RenderChunkShared> > > > mRenderChunkSharedMap;
+  /* 0x0058 */ Level& mLevel;
+  /* 0x0060 */ LevelRenderer& mLevelRenderer;
+  /* 0x0068 */ std::vector<LevelRendererCamera *,std::allocator<LevelRendererCamera *> > mLevelRendererCameraListenerList;
+  /* 0x0080 */ AutomaticID<Dimension,int> mDimensionId;
+  /* 0x0088 */ std::unordered_map<SubChunkPos,RenderChunkCoordinator::DirtyChunkData,std::hash<SubChunkPos>,std::equal_to<SubChunkPos>,std::allocator<std::pair<SubChunkPos const ,RenderChunkCoordinator::DirtyChunkData> > > mVisibilityDirtyRenderChunkMap;
+  /* 0x00c8 */ std::unordered_map<SubChunkPos,std::vector<ActorBlockSyncMessage,std::allocator<ActorBlockSyncMessage> >,std::hash<SubChunkPos>,std::equal_to<SubChunkPos>,std::allocator<std::pair<SubChunkPos const ,std::vector<ActorBlockSyncMessage,std::allocator<ActorBlockSyncMessage> > > > > mRenderChunkChangedEntityNotificationMap;
+  /* 0x0108 */ std::unordered_map<SubChunkPos,std::vector<BlockActorBlockSyncMessage,std::allocator<BlockActorBlockSyncMessage> >,std::hash<SubChunkPos>,std::equal_to<SubChunkPos>,std::allocator<std::pair<SubChunkPos const ,std::vector<BlockActorBlockSyncMessage,std::allocator<BlockActorBlockSyncMessage> > > > > mRenderChunkChangedBlockEntityNotificationMap;
+  /* 0x0148 */ std::unique_ptr<RenderChunkCoordinatorProxy,std::default_delete<RenderChunkCoordinatorProxy> > mProxy;
+  
+  RenderChunkCoordinator(Level&, LevelRenderer&, AutomaticID<Dimension,int>);
+  virtual ~RenderChunkCoordinator();
+  void addLevelRendererCameraListener(LevelRendererCamera*);
+  void removeLevelRendererCameraListener(LevelRendererCamera*);
+  virtual void onChunkLoaded(ChunkSource&, LevelChunk&);
+  virtual void onBrightnessChanged(BlockSource&, const BlockPos&);
+  virtual void onAreaChanged(BlockSource&, const BlockPos&, const BlockPos&);
+  virtual void onBlockChanged(BlockSource&, const BlockPos&, uint32_t, const Block&, const Block&, int32_t, const ActorBlockSyncMessage*);
+  virtual void onBlockEntityAboutToBeRemoved(BlockSource&, std::shared_ptr<BlockActor>);
+  void tick();
+  void preRenderTick();
+  void reserveRenderChunkCount(const uint64_t);
+  void rebuildAllRenderChunkGeometry();
+  std::shared_ptr<RenderChunkShared> getOrCreateChunkAtPos(const SubChunkPos&);
+  uint64_t getWeakRenderChunkSharedCount() const;
+  uint64_t getRenderChunkSharedCount() const;
+  uint64_t getRenderChunkMemorySize() const;
+  uint64_t getRenderChunkSharedIndexBufferMemorySize() const;
+  uint64_t getSweepAndPruneIndex() const;
+  uint64_t getMaxSweepAndPruneCount() const;
+  uint64_t getRenderChunkMeshCount() const;
+  uint64_t getRenderChunkMeshDataCount() const;
+  uint64_t getMeshSizeInBytes() const;
+  uint64_t getRenderChunkGeometryCount() const;
+  uint64_t getRenderChunkSharedMemoryUsed() const;
+  uint64_t getRenderChunkGeometryBaseMemoryUsed() const;
+  uint64_t getRenderChunkGeometryMeshMemoryUsed() const;
+  uint64_t getRenderChunkInstancedCount() const;
+  uint64_t getRenderChunkInstancedBaseMemoryUsed() const;
+  uint64_t getRenderChunkInstancedIndexMemoryUsed() const;
+  uint64_t getRenderChunkInstancedDifferentGeoCount() const;
+  RenderChunkCoordinatorProxy* getProxy();
+  void _setDirty(const SubChunkPos&, bool, bool, std::bitset<6>);
+  void _setDirty(const BlockPos&, const BlockPos&, bool, bool, bool);
+  void _setAllDirty(bool, bool);
+  void _handleVisibilityUpdates();
+  void _updateRenderChunkVisibility(std::shared_ptr<RenderChunkShared>&);
+  void _launchVisibilityRebuild(std::shared_ptr<RenderChunkShared>&);
+  unsigned char _getVersionNumberForRenderChunkPos(const SubChunkPos&);
+  void _notifyListenersForVisibilityChange(RenderChunkShared&);
+  void _notifyListenersForImmediateRenderChunkChange(const SubChunkPos&);
+  void __autoclassinit2(uint64_t);
+  virtual void* __vecDelDtor(uint32_t);
+  
+  static void garbageCollectGraphicsResources();
+  static bool shouldSetBlockAsDirty(const BlockPos&, const Block&, const Block&, BlockPos&, BlockPos&, bool&);
+};
