@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\Flash\Downloads\socket.io-client-cpp-3.1.0\socket.io-client-cpp\_deps\catch2-src\src\catch2\internal\catch_main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\Flash\Downloads\socket.io-client-cpp-3.1.0\socket.io-client-cpp\_deps\catch2-src\src\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{B9DE35E8-778A-3BFF-8628-C38C2BB88B75}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

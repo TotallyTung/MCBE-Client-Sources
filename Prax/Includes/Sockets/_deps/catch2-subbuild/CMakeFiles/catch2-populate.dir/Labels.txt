@@ -1,0 +1,14 @@
+# Target labels
+ catch2-populate
+# Source files and their labels
+C:/Users/Flash/Downloads/socket.io-client-cpp-3.1.0/socket.io-client-cpp/_deps/catch2-subbuild/CMakeFiles/catch2-populate
+C:/Users/Flash/Downloads/socket.io-client-cpp-3.1.0/socket.io-client-cpp/_deps/catch2-subbuild/CMakeFiles/d2a355b178b1a0437510fbb8779c2446/catch2-populate.rule
+C:/Users/Flash/Downloads/socket.io-client-cpp-3.1.0/socket.io-client-cpp/_deps/catch2-subbuild/CMakeFiles/6718b2039bbd6b6f70816da55bb9a437/catch2-populate-complete.rule
+C:/Users/Flash/Downloads/socket.io-client-cpp-3.1.0/socket.io-client-cpp/_deps/catch2-subbuild/CMakeFiles/ca46f3bd84e071d036d6f331e67b80b8/catch2-populate-build.rule
+C:/Users/Flash/Downloads/socket.io-client-cpp-3.1.0/socket.io-client-cpp/_deps/catch2-subbuild/CMakeFiles/ca46f3bd84e071d036d6f331e67b80b8/catch2-populate-configure.rule
+C:/Users/Flash/Downloads/socket.io-client-cpp-3.1.0/socket.io-client-cpp/_deps/catch2-subbuild/CMakeFiles/ca46f3bd84e071d036d6f331e67b80b8/catch2-populate-download.rule
+C:/Users/Flash/Downloads/socket.io-client-cpp-3.1.0/socket.io-client-cpp/_deps/catch2-subbuild/CMakeFiles/ca46f3bd84e071d036d6f331e67b80b8/catch2-populate-install.rule
+C:/Users/Flash/Downloads/socket.io-client-cpp-3.1.0/socket.io-client-cpp/_deps/catch2-subbuild/CMakeFiles/ca46f3bd84e071d036d6f331e67b80b8/catch2-populate-mkdir.rule
+C:/Users/Flash/Downloads/socket.io-client-cpp-3.1.0/socket.io-client-cpp/_deps/catch2-subbuild/CMakeFiles/ca46f3bd84e071d036d6f331e67b80b8/catch2-populate-patch.rule
+C:/Users/Flash/Downloads/socket.io-client-cpp-3.1.0/socket.io-client-cpp/_deps/catch2-subbuild/CMakeFiles/ca46f3bd84e071d036d6f331e67b80b8/catch2-populate-test.rule
+C:/Users/Flash/Downloads/socket.io-client-cpp-3.1.0/socket.io-client-cpp/_deps/catch2-subbuild/CMakeFiles/ca46f3bd84e071d036d6f331e67b80b8/catch2-populate-update.rule

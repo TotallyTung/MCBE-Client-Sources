@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\Flash\Downloads\socket.io-client-cpp-3.1.0\socket.io-client-cpp\CMakeFiles\8528d36e9b4ec030d39c51b3d2368532\RUN_TESTS_force.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{9F26E3F0-050D-3E2F-9820-9B882367A5C4}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

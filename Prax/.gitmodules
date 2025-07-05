@@ -1,0 +1,15 @@
+[submodule "cryptopp-cmake"]
+	path = cryptopp-cmake
+	url = https://github.com/abdes/cryptopp-cmake.git
+[submodule "Includes/Luau"]
+	path = Includes/Luau
+	url = https://github.com/luau-lang/luau.git
+[submodule "Includes/magic_vtable"]
+	path = Includes/magic_vtable
+	url = https://github.com/DisabledMallis/magic_vtable
+[submodule "Includes/openssl"]
+	path = Includes/openssl
+	url = https://github.com/janbar/openssl-cmake.git
+[submodule "Includes/cpr"]
+	path = Includes/cpr
+	url = https://github.com/libcpr/cpr.git

@@ -1,0 +1,9 @@
+/.vs/
+/cmake-build-debug/
+/cmake-build-release/
+/cmake-build-release-paid/
+/cmake-build-release-free/
+/out/
+CMakeSettings.json
+/cryptopp-cmake/
+/Includes/magic_vtable/

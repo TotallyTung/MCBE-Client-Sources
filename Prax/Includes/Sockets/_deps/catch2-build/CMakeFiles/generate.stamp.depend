@@ -1,0 +1,7 @@
+# CMake generation dependency list for this directory.
+C:/Program Files/CMake/share/cmake-3.28/Modules/CMakeDependentOption.cmake
+C:/Program Files/CMake/share/cmake-3.28/Modules/CMakePackageConfigHelpers.cmake
+C:/Program Files/CMake/share/cmake-3.28/Modules/GNUInstallDirs.cmake
+C:/Program Files/CMake/share/cmake-3.28/Modules/WriteBasicConfigVersionFile.cmake
+C:/Users/Flash/Downloads/socket.io-client-cpp-3.1.0/socket.io-client-cpp/_deps/catch2-src/CMake/CatchConfigOptions.cmake
+C:/Users/Flash/Downloads/socket.io-client-cpp-3.1.0/socket.io-client-cpp/_deps/catch2-src/CMakeLists.txt

@@ -1,0 +1,150 @@
+^C:\USERS\FLASH\DOWNLOADS\SOCKET.IO-CLIENT-CPP-3.1.0\SOCKET.IO-CLIENT-CPP\_DEPS\CATCH2-SUBBUILD\CMAKEFILES\CA46F3BD84E071D036D6F331E67B80B8\CATCH2-POPULATE-MKDIR.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -Dcfgdir=/Debug -P C:/Users/Flash/Downloads/socket.io-client-cpp-3.1.0/socket.io-client-cpp/_deps/catch2-subbuild/catch2-populate-prefix/tmp/catch2-populate-mkdirs.cmake
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/Flash/Downloads/socket.io-client-cpp-3.1.0/socket.io-client-cpp/_deps/catch2-subbuild/catch2-populate-prefix/src/catch2-populate-stamp/Debug/catch2-populate-mkdir
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^C:\USERS\FLASH\DOWNLOADS\SOCKET.IO-CLIENT-CPP-3.1.0\SOCKET.IO-CLIENT-CPP\_DEPS\CATCH2-SUBBUILD\CMAKEFILES\CA46F3BD84E071D036D6F331E67B80B8\CATCH2-POPULATE-DOWNLOAD.RULE
+setlocal
+cd C:\Users\Flash\Downloads\socket.io-client-cpp-3.1.0\socket.io-client-cpp\_deps
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -P C:/Users/Flash/Downloads/socket.io-client-cpp-3.1.0/socket.io-client-cpp/_deps/catch2-subbuild/catch2-populate-prefix/tmp/catch2-populate-gitclone.cmake
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/Flash/Downloads/socket.io-client-cpp-3.1.0/socket.io-client-cpp/_deps/catch2-subbuild/catch2-populate-prefix/src/catch2-populate-stamp/Debug/catch2-populate-download
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^C:\USERS\FLASH\DOWNLOADS\SOCKET.IO-CLIENT-CPP-3.1.0\SOCKET.IO-CLIENT-CPP\_DEPS\CATCH2-SUBBUILD\CMAKEFILES\CA46F3BD84E071D036D6F331E67B80B8\CATCH2-POPULATE-UPDATE.RULE
+setlocal
+cd C:\Users\Flash\Downloads\socket.io-client-cpp-3.1.0\socket.io-client-cpp\_deps\catch2-src
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -Dcan_fetch=YES -P C:/Users/Flash/Downloads/socket.io-client-cpp-3.1.0/socket.io-client-cpp/_deps/catch2-subbuild/catch2-populate-prefix/tmp/catch2-populate-gitupdate.cmake
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^C:\USERS\FLASH\DOWNLOADS\SOCKET.IO-CLIENT-CPP-3.1.0\SOCKET.IO-CLIENT-CPP\_DEPS\CATCH2-SUBBUILD\CMAKEFILES\CA46F3BD84E071D036D6F331E67B80B8\CATCH2-POPULATE-PATCH.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/Flash/Downloads/socket.io-client-cpp-3.1.0/socket.io-client-cpp/_deps/catch2-subbuild/catch2-populate-prefix/src/catch2-populate-stamp/Debug/catch2-populate-patch
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^C:\USERS\FLASH\DOWNLOADS\SOCKET.IO-CLIENT-CPP-3.1.0\SOCKET.IO-CLIENT-CPP\_DEPS\CATCH2-SUBBUILD\CMAKEFILES\CA46F3BD84E071D036D6F331E67B80B8\CATCH2-POPULATE-CONFIGURE.RULE
+setlocal
+cd C:\Users\Flash\Downloads\socket.io-client-cpp-3.1.0\socket.io-client-cpp\_deps\catch2-build
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/Flash/Downloads/socket.io-client-cpp-3.1.0/socket.io-client-cpp/_deps/catch2-subbuild/catch2-populate-prefix/src/catch2-populate-stamp/Debug/catch2-populate-configure
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^C:\USERS\FLASH\DOWNLOADS\SOCKET.IO-CLIENT-CPP-3.1.0\SOCKET.IO-CLIENT-CPP\_DEPS\CATCH2-SUBBUILD\CMAKEFILES\CA46F3BD84E071D036D6F331E67B80B8\CATCH2-POPULATE-BUILD.RULE
+setlocal
+cd C:\Users\Flash\Downloads\socket.io-client-cpp-3.1.0\socket.io-client-cpp\_deps\catch2-build
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/Flash/Downloads/socket.io-client-cpp-3.1.0/socket.io-client-cpp/_deps/catch2-subbuild/catch2-populate-prefix/src/catch2-populate-stamp/Debug/catch2-populate-build
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^C:\USERS\FLASH\DOWNLOADS\SOCKET.IO-CLIENT-CPP-3.1.0\SOCKET.IO-CLIENT-CPP\_DEPS\CATCH2-SUBBUILD\CMAKEFILES\CA46F3BD84E071D036D6F331E67B80B8\CATCH2-POPULATE-INSTALL.RULE
+setlocal
+cd C:\Users\Flash\Downloads\socket.io-client-cpp-3.1.0\socket.io-client-cpp\_deps\catch2-build
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/Flash/Downloads/socket.io-client-cpp-3.1.0/socket.io-client-cpp/_deps/catch2-subbuild/catch2-populate-prefix/src/catch2-populate-stamp/Debug/catch2-populate-install
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^C:\USERS\FLASH\DOWNLOADS\SOCKET.IO-CLIENT-CPP-3.1.0\SOCKET.IO-CLIENT-CPP\_DEPS\CATCH2-SUBBUILD\CMAKEFILES\CA46F3BD84E071D036D6F331E67B80B8\CATCH2-POPULATE-TEST.RULE
+setlocal
+cd C:\Users\Flash\Downloads\socket.io-client-cpp-3.1.0\socket.io-client-cpp\_deps\catch2-build
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/Flash/Downloads/socket.io-client-cpp-3.1.0/socket.io-client-cpp/_deps/catch2-subbuild/catch2-populate-prefix/src/catch2-populate-stamp/Debug/catch2-populate-test
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^C:\USERS\FLASH\DOWNLOADS\SOCKET.IO-CLIENT-CPP-3.1.0\SOCKET.IO-CLIENT-CPP\_DEPS\CATCH2-SUBBUILD\CMAKEFILES\6718B2039BBD6B6F70816DA55BB9A437\CATCH2-POPULATE-COMPLETE.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory C:/Users/Flash/Downloads/socket.io-client-cpp-3.1.0/socket.io-client-cpp/_deps/catch2-subbuild/CMakeFiles/Debug
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/Flash/Downloads/socket.io-client-cpp-3.1.0/socket.io-client-cpp/_deps/catch2-subbuild/CMakeFiles/Debug/catch2-populate-complete
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/Flash/Downloads/socket.io-client-cpp-3.1.0/socket.io-client-cpp/_deps/catch2-subbuild/catch2-populate-prefix/src/catch2-populate-stamp/Debug/catch2-populate-done
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^C:\USERS\FLASH\DOWNLOADS\SOCKET.IO-CLIENT-CPP-3.1.0\SOCKET.IO-CLIENT-CPP\_DEPS\CATCH2-SUBBUILD\CMAKEFILES\D2A355B178B1A0437510FBB8779C2446\CATCH2-POPULATE.RULE
+setlocal
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^C:\USERS\FLASH\DOWNLOADS\SOCKET.IO-CLIENT-CPP-3.1.0\SOCKET.IO-CLIENT-CPP\_DEPS\CATCH2-SUBBUILD\CMAKELISTS.TXT
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/Flash/Downloads/socket.io-client-cpp-3.1.0/socket.io-client-cpp/_deps/catch2-subbuild -BC:/Users/Flash/Downloads/socket.io-client-cpp-3.1.0/socket.io-client-cpp/_deps/catch2-subbuild --check-stamp-file C:/Users/Flash/Downloads/socket.io-client-cpp-3.1.0/socket.io-client-cpp/_deps/catch2-subbuild/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

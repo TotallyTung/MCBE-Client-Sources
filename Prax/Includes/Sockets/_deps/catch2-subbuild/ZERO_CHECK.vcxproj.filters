@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\Flash\Downloads\socket.io-client-cpp-3.1.0\socket.io-client-cpp\_deps\catch2-subbuild\CMakeFiles\d2a355b178b1a0437510fbb8779c2446\generate.stamp.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{8D568E3F-A3AA-3C59-8029-11A5E0460EC6}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,10 @@
+^C:\USERS\FLASH\DOWNLOADS\SOCKET.IO-CLIENT-CPP-3.1.0\SOCKET.IO-CLIENT-CPP\_DEPS\CATCH2-SUBBUILD\CMAKEFILES\D2A355B178B1A0437510FBB8779C2446\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/Flash/Downloads/socket.io-client-cpp-3.1.0/socket.io-client-cpp/_deps/catch2-subbuild -BC:/Users/Flash/Downloads/socket.io-client-cpp-3.1.0/socket.io-client-cpp/_deps/catch2-subbuild --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file C:/Users/Flash/Downloads/socket.io-client-cpp-3.1.0/socket.io-client-cpp/_deps/catch2-subbuild/catch2-populate.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
